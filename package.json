@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Christensen-Dustin/eventTracker/issues"
   },
-  "homepage": "https://github.com/Christensen-Dustin/eventTracker#readme"
+  "homepage": "https://github.com/Christensen-Dustin/eventTracker#readme",
+  "dependencies": {
+    "ejs": "^2.6.2",
+    "express": "^4.17.1",
+    "pool": "^0.4.1"
+  }
 }
