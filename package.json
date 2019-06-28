@@ -1,0 +1,19 @@
+{
+  "name": "eventtracker",
+  "version": "1.0.0",
+  "description": "CS 313 NODE.js Project",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Christensen-Dustin/eventTracker.git"
+  },
+  "author": "Dustin Christensen",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Christensen-Dustin/eventTracker/issues"
+  },
+  "homepage": "https://github.com/Christensen-Dustin/eventTracker#readme"
+}
