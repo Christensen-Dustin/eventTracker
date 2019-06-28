@@ -1,0 +1,83 @@
+body {
+    background-color: gainsboro;
+}
+
+header {
+    background-color: lightgray;
+    text-align: center;
+    vertical-align: middle;
+    padding: 3px 3px;
+}
+
+#thoughts {
+    color: cornflowerblue;
+}
+
+.navBar {
+    overflow: hidden;
+    background-color: black;
+}
+
+.navBar a {
+    float: left;
+    color: white;
+    text-align: center;
+    padding: 21px 27px;
+    text-decoration: none;
+    font-size: 23px;
+}
+
+.navBar a:hover {
+    background-color: green;
+    color: yellow;
+    
+}
+
+.navBar a:active {
+    background-color: red;
+    color: white;
+    
+}
+
+#workArea {
+    background-color: white;
+    width: 73%;
+    height: 80%;
+    border: 3px solid red;
+    overflow: hidden;
+    float:left auto;
+    padding: 13px 11px;
+}
+
+#left {
+    background-color:white;
+    width: 23%;
+    float: left;
+    border: 3px solid green;
+    padding: 21px 13px;
+}
+
+#centerLeft {
+    background-color:white;
+    width: 23%;
+    float: left;
+    border: 3px solid green;
+    padding: 21px 13px;
+}
+
+#centerRight {
+    background-color:white;
+    width: 23%;
+    float: left;
+    border: 3px solid green;
+    padding: 21px 13px;
+}
+
+#right {
+    background-color: white;
+    width: 23%;
+    float: left;
+    border: 3px solid green;
+    overflow: hidden;
+    padding: 21px 13px;
+}
