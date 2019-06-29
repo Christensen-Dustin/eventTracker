@@ -18,6 +18,7 @@ app.set("port", (process.env.PORT || port1));
 
 // app.get("/eventTracker_home.html", gatherInfo);     // Preparation
 app.get("/getLastEntry", getLastEntry);             // get the last entry
+app.get("/getNote", getNote);
 // app.get("/getPerson", getPerson);                   // get entry
 // app.get("/getChildren", getChildren);               // get themes
 // app.get("/getParent", getParent);                   // get notes
@@ -25,6 +26,10 @@ app.get("/getLastEntry", getLastEntry);             // get the last entry
 app.listen(app.get('port'), function() {
     console.log("Now listening for connections on port: " + app.get("port"));
 });
+
+// global variables
+var entryID = 0;
+var acct = 0;
 
 
 // gather info from the database
@@ -52,6 +57,8 @@ function gatherInfo(request, response) {
 function getLastEntry(request, response) {
     console.log("Retrieving Last Entry from SERVER.");
     
+    var params = {};
+    
     var query = request.query;
     console.log("Retrieving last entry: ", query);
     
@@ -62,7 +69,9 @@ function getLastEntry(request, response) {
             response.status(500).json({success:false, data: error});
         } else {
             // var params = JSON.stringify(result);
-            var params = {id: result[result.length - 1].entry_id_pk,
+            entryID = result[result.length - 1].entry_id_pk;
+            acct = result[result.length - 1].entry_acct_fk;
+            params = {ID: result[result.length - 1].entry_id_pk,
                           content: result[result.length - 1].entry_content,
                           date: result[result.length - 1].entry_date,
                           timeline: result[result.length - 1].entry_timeline,
@@ -72,6 +81,37 @@ function getLastEntry(request, response) {
             
             // response.writeHead(200, {"Content-Type": "application/json"});
             response.render('lastEntry', params);
+            response.end();
+        }
+    });
+};
+
+
+// Get notes
+// Load the last entry
+function getNote(request, response) {
+    console.log("Retrieving Last Entry from SERVER.");
+    
+    var params = {};
+    
+    var query = request.query;
+    console.log("Retrieving last entry: ", query);
+    
+    getNoteFromDB(query, entryID, acct, function(error, result) {
+        console.log("Back from the getLastEntryFromDB function with result: ", result);
+        
+        if (error || result == null || result.length < 1) {
+            response.status(500).json({success:false, data: error});
+        } else {
+            var paramsADD = {};
+            for(var index = 0; index < result.length; index++){
+                paramsADD += {noteID: result[index].note_id_pk,
+                          noteContent: result[index].note_content,
+                          noteDate: result[index].note_date};
+            }
+            
+            console.log("Transfered to paramsADD: ", paramsADD);
+            response.render('Notes', paramsADD);
             response.end();
         }
     });
@@ -122,7 +162,26 @@ function getLastEntryFromDB(query, callback) {
 };
 
 
-
+// Get a note from the DATABASE
+function getNoteFromDB(query, id, acct, callback) {
+    console.log("getLastEntryFromDB called from id: ", query);
+    
+    var sql = "SELECT note_id_pk, note_content, note_date, note_acct_fk FROM eventnote INNER JOIN eventNoteConnection ON note_id_pk = connectN_FK WHERE note_id_pk = $1::int AND note_acct_fk = $2::int";
+    var params = [id, acct];
+    
+    pool.query(sql, params, function(err, result) {
+        if (err) {
+            console.log("An error with the DB: ");
+            console.log(err);
+            callback(err, null);
+        };
+                
+        console.log("Found DB result: " + JSON.stringify(result.rows));
+        
+        callback(null, result.rows);
+        
+    });
+};
 
 
 
