@@ -13,13 +13,13 @@ header {
     color: cornflowerblue;
 }
 
-.navBar {
+.button {
     overflow: hidden;
     background-color: black;
 }
 
-.navBar a {
-    float: left;
+.button {
+    float: right;
     color: white;
     text-align: center;
     padding: 21px 27px;
@@ -27,13 +27,13 @@ header {
     font-size: 23px;
 }
 
-.navBar a:hover {
+.button :hover {
     background-color: green;
     color: yellow;
     
 }
 
-.navBar a:active {
+.button :active {
     background-color: red;
     color: white;
     
