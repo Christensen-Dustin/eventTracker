@@ -1,5 +1,6 @@
-var express = require("express");
-var app = express();
+// MAIN PAGE: https://evening-wave-14088.herokuapp.com/eventTracker_home.html
+const express = require("express");
+const app = express();
 
 const { Pool } = require("pg");
 
@@ -13,7 +14,7 @@ const pool = new Pool({connectionString: connectionString});
 // VIEW
 app.set('views', 'view');
 app.set('view engine', 'ejs');
-var port1 = 5000;
+const port1 = 5000;
 app.set("port", (process.env.PORT || port1));
 
 // app.get("/eventTracker_home.html", gatherInfo);     // Preparation
