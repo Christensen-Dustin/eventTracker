@@ -12,8 +12,6 @@ function getLastEntry(request, response) {
         }
         
         response.json(results);
-        // response.render('lastEntry', results);
-        // response.end();
     });
 };
 
