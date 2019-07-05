@@ -12,7 +12,7 @@ function loadUser() {
         console.log ("Back from the server with: ");
         console.log(data);
     
-        var user = data.list;
+        var user = data.list[0];
         entryID = user.account_ID_PK;
         
         $("#user").append("<b>Greetings: </b> " + user.account_name +
