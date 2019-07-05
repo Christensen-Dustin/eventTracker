@@ -50,7 +50,7 @@ function getThemes() {
     
     console.log("Acct ID: " + userID);
     
-    $.get("/getTheme",{id: userID, entry: entryID}, function(data) {
+    $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
