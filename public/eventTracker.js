@@ -28,3 +28,7 @@ function notesAdditional() {
     request.open("GET", "/getNote", true);
     request.send();
 }
+
+function newEntry() {
+    
+}
