@@ -18,10 +18,10 @@ function loadUser() {
         console.log(data);
     
         var user = data.list[0];
-        entryID = Number(JSON.stringify(user.account_ID_PK));
+        entryID = +user.account_ID_PK;
         
         $("#user").append("<b>Greetings: </b> " + user.account_name +
-                              " --- <b>UserID: </b> " + Number(user.account_ID_PK));
+                              " --- <b>UserID: </b> " + user.account_ID_PK);
     });
 }
 
