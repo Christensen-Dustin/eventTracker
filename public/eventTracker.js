@@ -1,6 +1,6 @@
 function getLastEntry() {
     lastEntry();
-    notesAdditional();
+    // notesAdditional();
 }
 
 function lastEntry() {

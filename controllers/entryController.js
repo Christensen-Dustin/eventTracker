@@ -6,7 +6,7 @@ function getLastEntry(request, response) {
     
     
     
-    entryModel.getLastEntryDB(function(error, results) {
+    entryModel.getLastEntryFromDB(function(error, results) {
         if(error) {
             console.log(error);
         }
