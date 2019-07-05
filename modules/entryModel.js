@@ -5,10 +5,11 @@ function getLastEntryFromDB(callback) {
         
     if (error || results == null || results.length < 1) {
         response.status(500).json({success:false, data: error});
+        
     } else {
-        // var params = JSON.stringify(result);
-        entryID = result[results.length - 1].entry_id_pk;
-        acct = result[results.length - 1].entry_acct_fk;
+        
+        entryID = results[results.length - 1].entry_id_pk;
+        acct = results[results.length - 1].entry_acct_fk;
         params = {ID: results[results.length - 1].entry_id_pk,
                       content: results[result.length - 1].entry_content,
                       date: results[results.length - 1].entry_date,
@@ -22,7 +23,7 @@ function getLastEntryFromDB(callback) {
         // response.end();
     }
     
-    callback(null, results);    
+    callback(null, params);    
 };
 
 module.exports = {
