@@ -13,6 +13,7 @@ function getLastEntry(request, response) {
         
         response.json(results);
     });
+};
 
 
 module.exports = {
