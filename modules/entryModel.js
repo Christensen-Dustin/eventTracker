@@ -11,7 +11,7 @@ function getLastEntryFromDB(id, callback) {
     var sql = "SELECT entry_ID_PK, entry_content, entry_date, entry_timeline, entry_acct_FK FROM eventEntry WHERE entry_acct_fk = $1::int";
     var params = [id];
     
-    pool.query(sql, params, function(errror, db_results) {
+    pool.query(sql, params, function(error, db_results) {
         if (error) {
             throw errror;
         } else {
