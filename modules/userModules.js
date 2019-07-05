@@ -8,7 +8,7 @@ const pool = new Pool({connectionString: db_url});
 function getUserDataFromDB(id, callback) {
     console.log("Back from the getUserDataFromDB:" + id);
     
-    var sql = "SELECT entry_ID_PK, entry_content, entry_date, entry_timeline, entry_acct_FK FROM eventEntry WHERE entry_acct_fk = $1::int";
+    var sql = "SELECT account_ID_PK, account_name FROM eventAccount WHERE account_ID_PK = $1::int";
     var params = [id];
     
     pool.query(sql, params, function(error, db_results) {

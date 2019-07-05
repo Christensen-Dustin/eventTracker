@@ -1,4 +1,4 @@
-const entryModel = require("../modules/userModel.js");
+const userModel = require("../modules/userModel.js");
 
 
 function getUserData(request, response) {
@@ -6,7 +6,7 @@ function getUserData(request, response) {
     
     var id = request.query.id;
     
-    entryModel.getUserDataFromDB(id, function(error, results) {
+    userModel.getUserDataFromDB(id, function(error, results) {
         if(error) {
             console.log(error);
         }

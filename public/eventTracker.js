@@ -1,5 +1,20 @@
 Function loadUser() {
+    console.log("Searching for User");
     
+    var id = 1;
+    console.log("Acct ID: " + id);
+    
+    $.get("/getUser",{id: id}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+    
+        for (var i = 0; i < data.list.length; i++) {
+            var user = data.list[i];
+        
+            $("#user").append("<b>Greetings: </b> " + user.account_name +
+                              " --- <b>UserID: </b> " + user.account_ID_PK);
+        }
+    });
 }
 
 function getLastEntry() {
