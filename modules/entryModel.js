@@ -1,4 +1,9 @@
+const { Pool } = require("pg");
 
+// Referred to as the connectionString
+const db_url = process.env.DATABASE_URL || "postgress://et_user:elijah@localhost:5432/eventtracker";
+
+const pool = new Pool({connectionString: db_url});
 
 function getLastEntryFromDB(callback) {
     console.log("Back from the getLastEntryFromDB");
