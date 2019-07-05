@@ -12,7 +12,7 @@ function loadUser() {
             var user = data.list[i];
         
             $("#user").append("<b>Greetings: </b> " + user.account_name +
-                              " --- <b>UserID: </b> " + user.account_ID_PK);
+                              " --- <b>UserID: </b> " + Number(user.account_ID_PK));
         }
     });
 }
