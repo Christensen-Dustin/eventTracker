@@ -22,7 +22,8 @@ function getLastEntryFromDB(id, callback) {
             
             callback(null, results);
         }    
-});
+    });
+}
 
 module.exports = {
     getLastEntryFromDB: getLastEntryFromDB
