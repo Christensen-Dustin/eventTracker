@@ -15,8 +15,7 @@ function getLastEntryFromDB(id, callback) {
         if (error) {
             throw errror;
         } else {
-            // entryID = results[results.length - 1].entry_id_pk;
-            // acct = results[results.length - 1].entry_acct_fk;
+            
             var results = { success: true, list: db_results.rows };
         
             console.log("Transfered to results: ", results);
