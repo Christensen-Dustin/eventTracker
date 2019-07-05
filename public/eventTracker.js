@@ -49,6 +49,7 @@ function getThemes() {
     console.log("Searching for Themes related to entry");
     
     console.log("Acct ID: " + userID);
+    console.log("Entry ID: " + entryID);
     
     $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");

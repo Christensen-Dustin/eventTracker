@@ -6,8 +6,8 @@ const db_url = process.env.DATABASE_URL || "postgress://et_user:elijah@localhost
 const pool = new Pool({connectionString: db_url});
 
 function getThemesFromDB(id, entry, callback) {
-    console.log("Back from the getThemeFromDB:" + id);
-    console.log("Back from the getThemeFromDB:" + entry);
+    console.log("Back from the getThemeFromDB ID:" + id);
+    console.log("Back from the getThemeFromDB ENTRY:" + entry);
     
     var sql = "SELECT theme_ID_PK, theme_name, theme_acct_FK From eventTheme INNER JOIN eventThemeConnection ON theme_ID_PK = connectT_FK inner join eventEntry on connectE_FK=entry_ID_PK where entry_ID_PK=$1::int AND theme_acct_FK=$2::int";
     var params = [entry, id];
