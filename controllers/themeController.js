@@ -7,6 +7,8 @@ function getThemes(request, response) {
     var id = request.query.id;
     var entry = request.query.entry;
     
+    console.log("ID: " + id +" ENTRY: " + entry);
+    
     themeModel.getThemesFromDB(id, entry, function(error, results) {
         if(error) {
             console.log(error);
