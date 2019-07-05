@@ -18,5 +18,5 @@ app.get("/getLastEntry", entryController.getLastEntry);
 
 
 app.listen(PORT, function() {
-    Console.log("Server listening on Port: " + PORT);
+    console.log("Server listening on Port: " + PORT);
 });
