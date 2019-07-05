@@ -13,7 +13,7 @@ function getUserDataFromDB(id, callback) {
     
     pool.query(sql, params, function(error, db_results) {
         if (error) {
-            throw errror;
+            throw error;
         } else {
             
             var results = { success: true, list: db_results.rows };
