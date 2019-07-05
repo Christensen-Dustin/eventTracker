@@ -1,4 +1,4 @@
-Function loadUser() {
+function loadUser() {
     console.log("Searching for User");
     
     var id = 1;
