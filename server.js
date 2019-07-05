@@ -5,8 +5,8 @@ const path = require("path");
 var app = express();
 
 const entryController = require("./controllers/entryController.js");
-const noteController = require("./controllers/noteController.js");
-const themeController = require("./controllers/themeController.js");
+// const noteController = require("./controllers/noteController.js");
+// const themeController = require("./controllers/themeController.js");
 
 const PORT = process.env.PORT || 5000;
 
