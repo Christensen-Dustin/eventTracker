@@ -8,6 +8,11 @@ function loadUser() {
     
     console.log("Acct ID: " + userID);
     
+    var select = document.getElementById("user");
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+    
     $.get("/getUser",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
@@ -30,6 +35,11 @@ function lastEntry() {
     console.log("Searching for last entry");
     
     console.log("Acct ID: " + userID);
+    
+    var select = document.getElementById("entry");
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
     
     $.get("/getLastEntry",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
