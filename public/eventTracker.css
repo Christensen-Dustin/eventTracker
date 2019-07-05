@@ -13,6 +13,14 @@ header {
     color: cornflowerblue;
 }
 
+#user {
+    background-color: lightgoldenrodyellow;
+    border: 3px solid brown;
+    width: 40%;
+    padding: 13px 13px;
+    
+}
+
 .button {
     overflow: hidden;
     background-color: black;
@@ -54,7 +62,6 @@ header {
     border: 3px solid red;
     overflow: hidden;
     float:left auto;
-    
     padding: 13px 11px;
 }
 
