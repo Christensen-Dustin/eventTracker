@@ -16,9 +16,9 @@ function lastEntry() {
         for (var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
         
-            $("entry").append("<b>Entry Date:</b> " + entry.date +
-                              "<br><b>Entry Timeline:</b> " + entry.timeline +
-                              "<br><b>Content:</b><br>" + entry.content);
+            $("entry").append("<b>Entry Date:</b> " + entry.entry_date +
+                              "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
+                              "<br><b>Content:</b><br>" + entry.entry_content);
         }
     });
     
