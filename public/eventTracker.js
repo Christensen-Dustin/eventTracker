@@ -18,7 +18,7 @@ function loadUser() {
         console.log(data);
     
         var user = data.list[0];
-        entryID = parseInt(user.account_ID_PK);
+        entryID = parseInt(user.account_ID_PK) + user.account_ID_PK;
         
         $("#user").append("<b>Greetings: </b> " + user.account_name +
                               " --- <b>UserID: </b> " + parseInt(user.account_ID_PK));
