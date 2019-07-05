@@ -33,9 +33,4 @@ INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (1, 6);
 INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 1);
 
 
--- Connections between Notes and Entry
-CREATE TABLE eventNoteConnection (
-    connectEN_ID_PK     serial not null primary key,            -- Event/Note ID
-    connectE_FK         INT references eventEntry(entry_ID_PK), -- Foreign Key to Entry
-    connectN_FK         INT references eventNote(note_ID_PK)     -- Foreign Key to Note
-);
+SELECT theme_ID_PK, theme_name, theme_acct_FK From eventTheme INNER JOIN eventThemeConnection ON theme_ID_PK = connectT_FK inner join eventEntry on connectE_FK=entry_ID_PK where entry_ID_PK=1 AND theme_acct_FK=1;

@@ -6,7 +6,7 @@ const session = require("express-session");
 const userController = require("./controllers/userController.js");
 const entryController = require("./controllers/entryController.js");
 // const noteController = require("./controllers/noteController.js");
-// const themeController = require("./controllers/themeController.js");
+const themeController = require("./controllers/themeController.js");
 
 const PORT = process.env.PORT || 5000;
 
@@ -26,7 +26,7 @@ app.get("/getLastEntry", entryController.getLastEntry);
 // app.get("/getNotes", notesController.getNotes);
 
 // Theme Controllers
-
+app.get("/getThemes", themeController.getThemes);
 
 
 app.listen(PORT, function() {
