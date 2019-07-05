@@ -7,6 +7,8 @@ const pool = new Pool({connectionString: db_url});
 
 function getLastEntryFromDB(callback) {
     console.log("Back from the getLastEntryFromDB");
+    
+    var sql = "SELECT 
         
     if (error || results == null || results.length < 1) {
         response.status(500).json({success:false, data: error});

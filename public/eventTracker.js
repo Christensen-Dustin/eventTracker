@@ -4,9 +4,17 @@ function getLastEntry() {
 }
 
 function lastEntry() {
+    console.log("Searching for last entry");
     
-    var request = new XMLHttpRequest();
+    $.get("/getLastEntry", function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
     
+    
+    
+    
+    
+/**    
     request.onreadystatechange = function() {
         if(this.readyState == 4 && this.status == 200) {
             document.getElementById("entry").innerHTML = request.responseText;
@@ -14,6 +22,7 @@ function lastEntry() {
     }
     request.open("GET", "/getLastEntry", true);
     request.send();
+*/
 }
 
 function notesAdditional() {
