@@ -1,6 +1,7 @@
 // Account-Database variables
 var userID = 1;
 var entryID = 0;
+var count = 0;
 // userData.userID = 1;
 
 // Loads USER DATA
@@ -25,6 +26,9 @@ function loadUser() {
 // Loads the Last Entry and assocciated data
 function getLastEntry() {
     lastEntry();
+    while (entryID == 0) {
+        count++;
+    }
     getThemes();
     getNotes();
     newNoteDoc();
