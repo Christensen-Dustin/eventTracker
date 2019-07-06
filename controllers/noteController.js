@@ -1,4 +1,4 @@
-const themeModel = require("../modules/noteModel.js");
+const noteModel = require("../modules/noteModel.js");
 
 
 function getNotes(request, response) {
