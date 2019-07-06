@@ -43,10 +43,12 @@ function lastEntry() {
         console.log(data);
     
         var entry = data.list[data.list.length - 1];
+        entryID = data.list[data.list.length - 1].entry_id_pk;
         
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+        console.log("entryID: " + entryID);
         
-        entryID = Number(entry.entry_id_pk);
+        // entryID = Number(entry.entry_id_pk);
         
         $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
                            "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
