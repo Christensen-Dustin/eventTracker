@@ -90,10 +90,7 @@ function getNotes() {
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
     
-    var select = document.getElementById("notes");
-    while (select.firstChild) {
-        select.removeChild(select.firstChild);
-    }
+    clearSection("notes");
     
     $.get("/getNotes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
@@ -110,4 +107,15 @@ function getNotes() {
 
 function newEntry() {
     
+}
+
+function clearSection(sectionID) {
+    
+    var select = document.getElementById(sectionID);
+    
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+    
+    return;
 }
