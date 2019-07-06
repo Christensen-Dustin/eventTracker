@@ -29,7 +29,9 @@ app.get("/getLastEntry", entryController.getLastEntry);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
-app.get("/newNote", noteController.newNote);
+app.get("/newNote", function(request, response) {
+    response.render('newNote');
+});
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
