@@ -15,7 +15,7 @@ function getUserDataFromDB(id, callback) {
         if (error) {
             throw error;
         } else {
-            console.log("db_reults: " + db_results);
+            console.log("db_reults: " + JSON.stringify(db_results));
             
             var results = { success: true, list: db_results.rows };
         
