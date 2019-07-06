@@ -1,18 +1,17 @@
 // Account-Database variables
-// var userID = 1;
-// var entryID = 0;
-
-userData.userID = 1;
+var userID = 1;
+var entryID = 0;
+// userData.userID = 1;
 
 // Loads USER DATA
 function loadUser() {
     console.log("Searching for User");
     
-    console.log("Acct ID: " + userData.userID);
+    console.log("Acct ID: " + userID);
     
     clearSection("user");
     
-    $.get("/getUser",{id: userData.userID}, function(data) {
+    $.get("/getUser",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
@@ -35,17 +34,17 @@ function getLastEntry() {
 function lastEntry() {
     console.log("Searching for last entry");
     
-    console.log("Acct ID: " + userData.userID);
+    console.log("Acct ID: " + userID);
     
     clearSection("entry");
     
-    $.get("/getLastEntry",{id: userData.userID}, function(data) {
+    $.get("/getLastEntry",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
         var entry = data.list[data.list.length - 1];
         
-        userData.entryID = entry.entry_id_pk;
+        entryID = entry.entry_id_pk;
         
         $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
                           "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
@@ -57,12 +56,12 @@ function lastEntry() {
 function getThemes() {
     console.log("Searching for Themes related to entry");
     
-    console.log("Acct ID: " + userData.userID);
-    console.log("Entry ID: " + userData.entryID);
+    console.log("Acct ID: " + userID);
+    console.log("Entry ID: " + entryID);
     
     clearSection("theme");
     
-    $.get("/getThemes",{id: userData.userID, entry: userData.entryID}, function(data) {
+    $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
         
@@ -84,12 +83,12 @@ function getThemes() {
 function getNotes() {
     console.log("Searching for Notes related to Entry");
     
-    console.log("Acct ID: " + userData.userID);
-    console.log("Entry ID: " + userData.entryID);
+    console.log("Acct ID: " + userID);
+    console.log("Entry ID: " + entryID);
     
     clearSection("notes");
     
-    $.get("/getNotes",{id: userData.userID, entry: userData.entryID}, function(data) {
+    $.get("/getNotes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
@@ -106,12 +105,12 @@ function getNotes() {
 function addNewNote() {
     console.log("Searching for Notes related to Entry");
     
-    console.log("Acct ID: " + userData.userID);
-    console.log("Entry ID: " + userData.entryID);
+    console.log("Acct ID: " + userID);
+    console.log("Entry ID: " + entryID);
             
     clearSection("notes");
     
-    $.post("/newNote",{id: userData.userID, entry: userData.entryID}, function(data) {
+    $.post("/newNote",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
