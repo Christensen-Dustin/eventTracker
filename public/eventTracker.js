@@ -26,7 +26,7 @@ function getLastEntry() {
     lastEntry();
     getThemes();
     getNotes();
-    // newNoteDoc();
+    newNoteDoc();
 }
 
 function lastEntry() {
