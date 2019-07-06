@@ -28,6 +28,7 @@ function getLastEntry() {
     lastEntry();
     while (entryID == 0) {
         count++;
+        console.log("count: " + count);
     }
     getThemes();
     getNotes();
