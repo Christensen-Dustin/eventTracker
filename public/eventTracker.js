@@ -98,12 +98,14 @@ function getNotes() {
 }
 
 function newNoteDoc() {
-    console.log("Pulling up newNote page");
+    var request = new XMLHttpRequest = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("addNote").innerHTML = request.responseText;
+        }
+    }
     
-    clearSection("addNote");
-    
-    $.get("/newNote");
-    
+    request.open("GET", "/newNote", true);
+    request.send();
 }
 
 function clearSection(sectionID) {

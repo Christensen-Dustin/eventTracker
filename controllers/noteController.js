@@ -21,7 +21,9 @@ function getNotes(request, response) {
 function newNote(request, response) {
     console.log("From noteController.newNote()")
     
-    response.render('newNote');
+    response.writeHead(200, {"Content-type": "html/text"});
+    response.render();
+    response.end();
 };
 
 
