@@ -26,6 +26,7 @@ function getLastEntry() {
     lastEntry();
     getThemes();
     getNotes();
+    newNoteDoc();
 }
 
 function lastEntry() {
@@ -56,7 +57,6 @@ function getThemes() {
     console.log("Entry ID: " + entryID);
     
     clearSection("theme");
-    }
     
     $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
@@ -102,7 +102,10 @@ function newNoteDoc() {
     
     clearSection("addNote");
     
-    $.get("/newNote");
+    $.get("/newNote", function(data){
+        $.("#addNote").append(data);
+    });
+    
 }
 
 function clearSection(sectionID) {
