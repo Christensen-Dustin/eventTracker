@@ -64,12 +64,18 @@ function getThemes() {
     $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
+        
+        var display = "<b>Theme:</b><table><tr>";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
         
-            $("#theme").append("<td>" + theme.theme_name + "<td>");
+            display += "<td>" + theme.theme_name + "</td>";
         }
+        
+        display += "</tr></table>";
+        
+        $("#theme").append(display);
     });
 }
 
