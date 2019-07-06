@@ -24,6 +24,7 @@ app.get("/getLastEntry", entryController.getLastEntry);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
+app.get("/newNote", noteController.newNote);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);

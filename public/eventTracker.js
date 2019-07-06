@@ -97,8 +97,12 @@ function getNotes() {
     });
 }
 
-function newEntry() {
+function newNoteDoc() {
+    console.log("Pulling up newNote page");
     
+    clearSection("addNote");
+    
+    $.get("/newNote");
 }
 
 function clearSection(sectionID) {

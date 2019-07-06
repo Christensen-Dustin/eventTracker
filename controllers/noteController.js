@@ -18,8 +18,12 @@ function getNotes(request, response) {
     });
 };
 
+function newNote(request, response) {
+    response.render('/newNote');
+};
+
 
 module.exports = {
-    getNotes: getNotes
-    
+    getNotes: getNotes,
+    newNote: newNote
 };
