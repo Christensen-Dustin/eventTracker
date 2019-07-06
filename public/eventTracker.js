@@ -102,9 +102,7 @@ function newNoteDoc() {
     
     clearSection("addNote");
     
-    $.get("/newNote", function(data){
-        console.log("newNoteDoc: " + data);
-    });
+    $.get("/newNote");
     
 }
 
