@@ -98,7 +98,10 @@ function getNotes() {
 }
 
 function newNoteDoc() {
-    var request = new XMLHttpRequest = function () {
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
             document.getElementById("addNote").innerHTML = request.responseText;
         }
