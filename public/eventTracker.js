@@ -28,7 +28,7 @@ function loadUser() {
 function getLastEntry() {
     lastEntry();
     getThemes();
-    // getNotes();
+    getNotes();
 }
 
 function lastEntry() {
@@ -81,6 +81,30 @@ function getThemes() {
         display += "</tr></table>";
         
         $("#theme").append(display);
+    });
+}
+
+function getNotes() {
+    console.log("Searching for Notes related to Entry");
+    
+    console.log("Acct ID: " + userID);
+    console.log("Entry ID: " + entryID);
+    
+    var select = document.getElementById("notes");
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+    
+    $.get("/getNote",{id: userID, entry: entryID}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+    
+        for (var i = 0; i < data.list.length; i++) {
+            var note = data.list[i];
+        
+            $("#notes").append("<b>Note Date:</b> " + note.note_date +
+                              "<br><b>Note Content:</b><br>" + note.note_content + "<br>");
+        }
     });
 }
 

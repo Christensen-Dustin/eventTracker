@@ -5,7 +5,7 @@ const session = require("express-session");
 
 const userController = require("./controllers/userController.js");
 const entryController = require("./controllers/entryController.js");
-// const noteController = require("./controllers/noteController.js");
+const noteController = require("./controllers/noteController.js");
 const themeController = require("./controllers/themeController.js");
 
 const PORT = process.env.PORT || 5000;
@@ -23,7 +23,7 @@ app.get("/getUser", userController.getUserData);
 app.get("/getLastEntry", entryController.getLastEntry);
 
 // Note Controllers
-// app.get("/getNotes", notesController.getNotes);
+app.get("/getNotes", notesController.getNotes);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
