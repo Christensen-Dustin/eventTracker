@@ -26,8 +26,30 @@ function newNote(request, response) {
     response.end();
 };
 
+function addNewNote(request, response) {
+    console.log("Preparing to ADD NEW NOTE to SERVER.");
+    
+    var id = userID;
+    var entry = entryID
+    
+    var newDate = request.query.newNoteDate;
+    var newNote = request.query.newNote;
+    
+    console.log("ID: " + id +" ENTRY: " + entry);
+    console.log("NEWDATE: " + newDate +" NEWNOTE: " + newNote);
+    
+    noteModel.getNotesFromDB(id, entry, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+};
+
 
 module.exports = {
     getNotes: getNotes,
-    newNote: newNote
+    newNote: newNote,
+    addNewNote: addNewNote
 };

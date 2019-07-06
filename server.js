@@ -20,6 +20,9 @@ app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
+app.use(session());
+
+var userData;
 
 // User Controller
 app.get("/getUser", userController.getUserData);
@@ -32,6 +35,8 @@ app.get("/getNotes", noteController.getNotes);
 app.get("/newNote", function(request, response) {
     response.render('newNote');
 });
+
+app.post("/newNote", noteController.addNewNote);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
