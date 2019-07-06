@@ -20,10 +20,10 @@ function loadUser() {
             var user = data.list[i];
         }
         
-        entryID = user.entry_id_pk;
+        entryID = user[user.length - 1].entry_id_pk;
         
-        $("#user").append("<b>Greetings: </b> " + user.account_name +
-                              " --- <b>UserID: </b> " + user.account_id_pk);
+        $("#user").append("<b>Greetings: </b> " + user[0].account_name +
+                              " --- <b>UserID: </b> " + user[0].account_id_pk);
     });
 }
 
@@ -48,7 +48,7 @@ function lastEntry() {
         console.log(data);
     
         var entry = data.list[data.list.length - 1];
-        entryID = data.list[data.list.length - 1].entry_id_pk;
+        // entryID = data.list[data.list.length - 1].entry_id_pk;
         
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
         console.log("entryID: " + entryID);
