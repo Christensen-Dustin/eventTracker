@@ -23,7 +23,7 @@ app.get("/getUser", userController.getUserData);
 app.get("/getLastEntry", entryController.getLastEntry);
 
 // Note Controllers
-app.get("/getNotes", notesController.getNotes);
+app.get("/getNotes", noteController.getNotes);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
