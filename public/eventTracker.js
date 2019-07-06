@@ -61,6 +61,11 @@ function getThemes() {
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
     
+    var select = document.getElementById("theme");
+    while (select.firstChild) {
+        select.removeChild(select.firstChild);
+    }
+    
     $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
