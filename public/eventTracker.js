@@ -103,7 +103,7 @@ function newNoteDoc() {
     clearSection("addNote");
     
     $.get("/newNote", function(data){
-        $.("#addNote").append(data);
+        console.log("newNoteDoc: " + data);
     });
     
 }
