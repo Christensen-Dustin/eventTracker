@@ -50,7 +50,7 @@ function lastEntry() {
         
             $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
                               "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
-                              "<br><b>Content:</b><br>" + entry.entry_content);
+                              "<br><b>Entry Content:</b><br>" + entry.entry_content);
         }
     });
 }
@@ -95,7 +95,7 @@ function getNotes() {
         select.removeChild(select.firstChild);
     }
     
-    $.get("/getNote",{id: userID, entry: entryID}, function(data) {
+    $.get("/getNotes",{id: userID, entry: entryID}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
