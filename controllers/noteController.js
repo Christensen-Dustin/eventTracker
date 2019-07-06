@@ -9,7 +9,7 @@ function getNotes(request, response) {
     
     console.log("ID: " + id +" ENTRY: " + entry);
     
-    themeModel.getThemesFromDB(id, entry, function(error, results) {
+    noteModel.getNotesFromDB(id, entry, function(error, results) {
         if(error) {
             console.log(error);
         }
