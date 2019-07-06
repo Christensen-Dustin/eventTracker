@@ -70,7 +70,7 @@ function getThemes() {
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
         
-            display += "<td>" + theme.theme_name + "</td>";
+            display += "<td>(" + theme.theme_name + ")</td>";
         }
         
         display += "</tr></table>";
