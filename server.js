@@ -14,7 +14,7 @@ var app = express();
 
 // VIEW
 app.set('views', 'view');
-app.set('view engine', ejs);
+app.set('view engine', 'ejs');
 
 // Static Directory
 app.use(express.static(path.join(__dirname, "public")));
