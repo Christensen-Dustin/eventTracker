@@ -20,7 +20,8 @@ function loadUser() {
             var user = data.list[i];
         }
         
-        entryID = user[user.length - 1].entry_id_pk;
+        entryID = user.entry_id_pk;
+        // entryID = user[user.length - 1].entry_id_pk;
         
         $("#user").append("<b>Greetings: </b> " + user[0].account_name +
                               " --- <b>UserID: </b> " + user[0].account_id_pk);
