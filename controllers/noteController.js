@@ -19,7 +19,7 @@ function getNotes(request, response) {
 };
 
 function newNote(request, response) {
-    console.log("From noteController.newNote()");
+    console.log("From noteController.newNote()")
     
     response.render('/newNote');
 };

@@ -12,6 +12,11 @@ const PORT = process.env.PORT || 5000;
 
 var app = express();
 
+// VIEW
+app.set('views', 'view');
+app.set('view engine', ejs);
+
+// Static Directory
 app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
