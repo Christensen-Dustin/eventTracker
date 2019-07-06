@@ -44,6 +44,8 @@ function lastEntry() {
     
         var entry = data.list[data.list.length - 1];
         
+        console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+        
         entryID = entry.entry_id_pk;
         
         $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
