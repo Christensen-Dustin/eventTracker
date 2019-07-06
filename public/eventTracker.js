@@ -8,10 +8,7 @@ function loadUser() {
     
     console.log("Acct ID: " + userID);
     
-    var select = document.getElementById("user");
-    while (select.firstChild) {
-        select.removeChild(select.firstChild);
-    }
+    clearSection("user");
     
     $.get("/getUser",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
@@ -36,10 +33,7 @@ function lastEntry() {
     
     console.log("Acct ID: " + userID);
     
-    var select = document.getElementById("entry");
-    while (select.firstChild) {
-        select.removeChild(select.firstChild);
-    }
+    clearSection("entry");
     
     $.get("/getLastEntry",{id: userID}, function(data) {
         console.log ("Back from the server with: ");
@@ -61,9 +55,7 @@ function getThemes() {
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
     
-    var select = document.getElementById("theme");
-    while (select.firstChild) {
-        select.removeChild(select.firstChild);
+    clearSection("theme");
     }
     
     $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
