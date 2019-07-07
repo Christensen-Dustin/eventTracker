@@ -3,8 +3,10 @@ const { Pool } = require("pg");
 // Referred to as the connectionString
 const db_url = process.env.DATABASE_URL || "postgress://et_user:elijah@localhost:5432/eventtracker";
 
+// Connection String
 const pool = new Pool({connectionString: db_url});
 
+// Get Themes for a specified ENTRY
 function getThemesFromDB(id, entry, callback) {
     console.log("Back from the getThemeFromDB ID:" + id);
     console.log("Back from the getThemeFromDB ENTRY:" + entry);
@@ -26,6 +28,28 @@ function getThemesFromDB(id, entry, callback) {
     });
 }
 
+// Get list of Themes from DATABASE
+function getThemeListFromDB(id, callback) {
+    console.log("Back from the getThemeListFromDB ID: " + id);
+    
+    var sql = "SELECT theme_ID_PK, theme_name, theme_acct_FK" +
+        "FROM eventTheme WHERE theme_acct_FK = $1::int";
+    var params = [id];
+    
+    pool.query(sql, params, function(error, db_results) {
+        if(error) {
+            throw error;
+        } else {
+            
+            var results = { success: true, list: db_results};
+            
+            callback(null, results);
+        }
+    });
+}
+
+// Exported MODULES
 module.exports = {
-    getThemesFromDB: getThemesFromDB
+    getThemesFromDB: getThemesFromDB,
+    getThemListFromDB: getThemeListFromDB
 };

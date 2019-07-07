@@ -24,6 +24,8 @@ function loadUser() {
         $("#user").append("<b>Greetings: </b> " + user.account_name +
                               " --- <b>UserID: </b> " + user.account_id_pk);
     });
+    
+    loadThemeList();
 }
 
 // Loads the Last Entry and assocciated data
@@ -187,6 +189,34 @@ function newNoteDoc() {
     request.open("GET", "/newNote", true);
     request.send();
 }
+
+function loadThemeList() {
+    console.log("Generatign Theme List");
+    
+    var id = userID;
+    
+    console.log("Loading Theme List for: " + id);
+    
+    clearSection("themeList");
+    
+    $.get("/themeList", {id: id}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+        
+        var display = "<b>Theme:</b><select>";
+    
+        for (var i = 0; i < data.list.length; i++) {
+            var theme = data.list[i];
+        
+            display += "<option value=" + theme.theme_id_pk + ">" +
+                theme.theme_name + "</option>";
+        }
+        
+        display += "</select>";
+        
+        $("#themeList").append(display);
+    }
+)}
 
 function clearSection(sectionID) {
     

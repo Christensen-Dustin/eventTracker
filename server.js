@@ -41,8 +41,9 @@ app.post("/addNoteConnect", noteController.addConnectNoteEvent);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
+app.get("/themeList", themeController.getThemeList);
 
-
+// Listening on PORT
 app.listen(PORT, function() {
     console.log("Server listening on Port: " + PORT);
 });

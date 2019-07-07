@@ -18,8 +18,25 @@ function getThemes(request, response) {
     });
 };
 
+// Get List of Themes
+function getThemeList(request, response) {
+    console.log("Retrieving List of Themes");
+    
+    var id = request.query.id;
+    
+    console.log("ID: " + id);
+    
+    themeModel.getThemeListFromDB(id, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+};
+
 
 module.exports = {
-    getThemes: getThemes
-    
+    getThemes: getThemes,
+    getThemeList: getThemeList    
 };
