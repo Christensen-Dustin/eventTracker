@@ -51,5 +51,5 @@ function getThemeListFromDB(id, callback) {
 // Exported MODULES
 module.exports = {
     getThemesFromDB: getThemesFromDB,
-    getThemListFromDB: getThemeListFromDB
+    getThemeListFromDB: getThemeListFromDB
 };

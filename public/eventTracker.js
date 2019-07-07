@@ -191,7 +191,7 @@ function newNoteDoc() {
 }
 
 function loadThemeList() {
-    console.log("Generatign Theme List");
+    console.log("Generating Theme List");
     
     var id = userID;
     
