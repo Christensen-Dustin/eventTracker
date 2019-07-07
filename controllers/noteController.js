@@ -67,6 +67,7 @@ function addConnectNoteEvent(request, response) {
         
         response.json(results);
         newNoteDoc();
+        getNotes();
     });
 };
 
