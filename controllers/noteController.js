@@ -34,7 +34,7 @@ function addNewNote(request, response) {
     var id = request.query.id;
     var entry = request.query.entry;
     var newDate = Date(request.query.date);
-    var newNote = Text(request.query.content);
+    var newNote = String(request.query.content);
     
     console.log("ID: " + id +" ENTRY: " + entry);
     console.log("NEWDATE: " + newDate +" NEWNOTE: " + newNote);
