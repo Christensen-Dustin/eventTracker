@@ -116,8 +116,8 @@ function addNewNote() {
     
     var userID = userID;
     var entryID = entryID;
-    var date = document.getElementsByClassName("newNoteDate")[0].value;
-    var content = document.getElementsByClassName("newNote")[0].value;
+    var date = document.getElementsByName("newNoteDate")[0].value;
+    var content = document.getElementsByName("newNote")[0].value;
     
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
