@@ -134,7 +134,7 @@ function addNewNote() {
         
     clearSection("notes");
     
-    $.post("/newNote",{id: acct, entry: entry, date: date, content: content},
+    $.post("/addNote",{id: acct, entry: entry, date: date, content: content},
            function(data) {
         console.log ("Back from the server with:");
         console.log(data);
@@ -160,7 +160,7 @@ function addConnectNoteEvent(noteID) {
         
     clearSection("notes");
     
-    $.post("/newNoteConnect",{entry: entry, note: note},
+    $.post("/addNoteConnect",{entry: entry, note: note},
            function(data) {
         console.log ("Back from the server with:");
         console.log(data);
