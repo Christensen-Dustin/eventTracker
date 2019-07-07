@@ -38,11 +38,13 @@ function getLastEntry() {
 function lastEntry() {
     console.log("Searching for last entry");
     
-    console.log("Acct ID: " + userID);
+    var acct = userID;
+    
+    console.log("Acct ID: " + acct);
     
     clearSection("entry");
     
-    $.get("/getLastEntry",{id: userID}, function(data) {
+    $.get("/getLastEntry",{id: acct}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
@@ -65,12 +67,15 @@ function lastEntry() {
 function getThemes() {
     console.log("Searching for Themes related to entry");
     
-    console.log("Acct ID: " + userID);
-    console.log("Entry ID: " + entryID);
+    var acct = userID;
+    var entry = entryID;
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
     
     clearSection("theme");
     
-    $.get("/getThemes",{id: userID, entry: entryID}, function(data) {
+    $.get("/getThemes",{id: acct, entry: entry}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
         
@@ -92,12 +97,15 @@ function getThemes() {
 function getNotes() {
     console.log("Searching for Notes related to Entry");
     
-    console.log("Acct ID: " + userID);
-    console.log("Entry ID: " + entryID);
+    var acct = userID;
+    var entry = entryID
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
     
     clearSection("notes");
     
-    $.get("/getNotes",{id: userID, entry: entryID}, function(data) {
+    $.get("/getNotes",{id: acct, entry: entry}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
     
@@ -114,19 +122,19 @@ function getNotes() {
 function addNewNote() {
     console.log("Adding Note related to Entry");
     
-    var userID = userID;
-    var entryID = entryID;
+    var acct = userID;
+    var entry = entryID;
     var date = document.getElementsByName("newNoteDate")[0].value;
     var content = document.getElementsByName("newNote")[0].value;
     
-    console.log("Acct ID: " + userID);
-    console.log("Entry ID: " + entryID);
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
     console.log("newNoteDate: " + date);
     console.log("newNoteContent: " + content);
         
     clearSection("notes");
     
-    $.post("/newNote",{id: userID, entry: entryID, date: date, content: content},
+    $.post("/newNote",{id: acct, entry: entry, date: date, content: content},
            function(data) {
         console.log ("Back from the server with:");
         console.log(data);
@@ -144,15 +152,15 @@ function addNewNote() {
 function addConnectNoteEvent(noteID) {
     console.log("Adding Note related to Entry");
     
-    var entryID = entryID;
-    var noteID = noteID;
+    var entry = entryID;
+    var note = noteID;
     
-    console.log("Entry ID: " + entryID);
-    console.log("Note ID: " + noteID);
+    console.log("Entry ID: " + entry);
+    console.log("Note ID: " + note);
         
     clearSection("notes");
     
-    $.post("/newNoteConnect",{entry: entryID, note: noteID},
+    $.post("/newNoteConnect",{entry: entry, note: note},
            function(data) {
         console.log ("Back from the server with:");
         console.log(data);
