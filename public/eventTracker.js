@@ -114,20 +114,29 @@ function getNotes() {
 function addNewNote() {
     console.log("Searching for Notes related to Entry");
     
+    var newNoteDate;
+    var newNoteContent; 
+    
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
+    console.log("newNoteDate: " + newNoteDate);
+    console.log("newNoteContent: " + newNoteContent);
+    
             
     clearSection("notes");
     
-    $.post("/newNote",{id: userID, entry: entryID}, function(data) {
+    $.post("/newNote",{id: userID, entry: entryID, date: newNoteDate, content: newNoteContent}, function(data) {
         console.log ("Back from the server with: ");
-        console.log(data);
+        
     
         
     });
 }
 
+// Display the New Note Doc
 function newNoteDoc() {
+    
+    clearSection("addNote");
     
     var request = new XMLHttpRequest();
     
