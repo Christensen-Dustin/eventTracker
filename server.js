@@ -37,6 +37,7 @@ app.get("/newNote", function(request, response) {
 });
 
 app.post("/newNote", noteController.addNewNote);
+app.post("/newNoteConnect", noteController.addConnectNoteEvent);
 
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);

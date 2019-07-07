@@ -135,6 +135,31 @@ function addNewNote() {
         
         var newNoteID = newNote.note_id_pk;
         
+        addConnectNoteEvent(newNoteID);
+        
+    });
+}
+
+// Add CONNECTION between NOTE and EVENT
+function addConnectNoteEvent(noteID) {
+    console.log("Adding Note related to Entry");
+    
+    var entryID = entryID;
+    var noteID = noteID;
+    
+    console.log("Entry ID: " + entryID);
+    console.log("Note ID: " + noteID);
+        
+    clearSection("notes");
+    
+    $.post("/newNoteConnect",{entry: entryID, note: noteID},
+           function(data) {
+        console.log ("Back from the server with:");
+        console.log(data);
+        
+        var newNoteConnect = data.list[0];
+        
+        newNoteDoc();
     });
 }
 

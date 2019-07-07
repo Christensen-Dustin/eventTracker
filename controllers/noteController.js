@@ -31,10 +31,10 @@ function newNote(request, response) {
 function addNewNote(request, response) {
     console.log("Preparing to ADD NEW NOTE to SERVER.");
     
-    var id = request.query.userID;
-    var entry = request.query.entryID;
-    var newDate = request.query.newNoteDate;
-    var newNote = request.query.newNote;
+    var id = request.query.id;
+    var entry = request.query.entry;
+    var newDate = request.query.date;
+    var newNote = request.query.content;
     
     console.log("ID: " + id +" ENTRY: " + entry);
     console.log("NEWDATE: " + newDate +" NEWNOTE: " + newNote);
@@ -47,8 +47,6 @@ function addNewNote(request, response) {
         console.log(JSON.stringify(results));
         
         response.json(results);
-        
-        addConnectNoteEvent(results);
     });
 };
 
@@ -56,9 +54,8 @@ function addNewNote(request, response) {
 function addConnectNoteEvent(request, response) {
     console.log("Preparing to ADD Connect for Event and Note to SERVER.");
     
-    var eventID = entryID;
-    
-    var noteID = request.query.note_id_pk;
+    var eventID = request.query.entry;
+    var noteID = request.query.note;
     
     console.log("EntryID " + eventID);
     console.log("NoteID: " + noteID);
