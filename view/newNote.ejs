@@ -9,11 +9,11 @@
 </head>  
 <body>
 <h2>New Note:</h2>
-<form method="POST" action="addNewNote()">
+<form method="POST" action="/newNote">
     <b>Enter new Note:</b><br>
     <b>Date of Note: </b><input type="date" name="newNoteDate"><br>
     <input type="textarea" style="width: 600px; height: 200px;" name="newNote"><br>
-    <input type="submit" value="Create Note">
+    <input type="button" onclick="addNewNote()" value="Create Note">
 </form>
 </body>
 </html>
