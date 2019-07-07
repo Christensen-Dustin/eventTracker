@@ -119,7 +119,7 @@ function getNotes() {
 }
 
 // Adds a NEW NOTE to a specified ENTRY
-function addNewNote() {
+function addNote() {
     console.log("Adding Note related to Entry");
     
     var acct = userID;
