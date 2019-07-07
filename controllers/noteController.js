@@ -31,10 +31,10 @@ function newNote(request, response) {
 function addNewNote(request, response) {
     console.log("Preparing to ADD NEW NOTE to SERVER.");
     
-    var id = Number(request.id);
-    var entry = Number(request.entry);
-    var newDate = Date(request.date);
-    var newNote = String(request.content);
+    var id = Number(request.query.id);
+    var entry = Number(request.query.entry);
+    var newDate = Date(request.query.date);
+    var newNote = String(request.query.content);
     
     console.log("ID: " + id +" ENTRY: " + entry);
     console.log("NEWDATE: " + newDate +" NEWNOTE: " + newNote);
@@ -54,8 +54,8 @@ function addNewNote(request, response) {
 function addConnectNoteEvent(request, response) {
     console.log("Preparing to ADD Connect for Event and Note to SERVER.");
     
-    var eventID = Number(request.entry);
-    var noteID = Number(request.note);
+    var eventID = Number(request.query.entry);
+    var noteID = Number(request.query.note);
     
     console.log("EntryID " + eventID);
     console.log("NoteID: " + noteID);
