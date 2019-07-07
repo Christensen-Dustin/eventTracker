@@ -32,7 +32,7 @@ function getThemesFromDB(id, entry, callback) {
 function getThemeListFromDB(id, callback) {
     console.log("Back from the getThemeListFromDB ID: " + id);
     
-    var sql = "SELECT theme_id_pk, theme_name, theme_acct_fk" +
+    var sql = "SELECT theme_name, theme_acct_fk, theme_id_pk" +
         "FROM eventTheme WHERE theme_acct_FK = $1::int";
     var params = [id];
     
