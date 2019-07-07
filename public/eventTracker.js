@@ -114,22 +114,22 @@ function getNotes() {
 function addNewNote() {
     console.log("Searching for Notes related to Entry");
     
-    var newNoteDate;
-    var newNoteContent; 
+    var userID = userID;
+    var entryID = entryID;
+    var date = document.getElementsByClassName("newNoteDate")[0].value;
+    var content = document.getElementsByClassName("newNote")[0].value;
     
     console.log("Acct ID: " + userID);
     console.log("Entry ID: " + entryID);
-    console.log("newNoteDate: " + newNoteDate);
-    console.log("newNoteContent: " + newNoteContent);
+    console.log("newNoteDate: " + date);
+    console.log("newNoteContent: " + content);
     
             
     clearSection("notes");
     
-    $.post("/newNote",{id: userID, entry: entryID, date: newNoteDate, content: newNoteContent}, function(data) {
-        console.log ("Back from the server with: ");
-        
-    
-        
+    $.post("/newNote",{id: userID, entry: entryID, date: date, content: content},
+           function(data) {
+        console.log ("Back from the server with: ");        
     });
 }
 

@@ -31,9 +31,8 @@ function newNote(request, response) {
 function addNewNote(request, response) {
     console.log("Preparing to ADD NEW NOTE to SERVER.");
     
-    var id = userID;
-    var entry = entryID
-    
+    var id = request.query.userID;
+    var entry = request.query.entryID;
     var newDate = request.query.newNoteDate;
     var newNote = request.query.newNote;
     
