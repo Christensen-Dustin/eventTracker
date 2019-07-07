@@ -1,6 +1,8 @@
 -- TEST ACCOUNT (Temple04)
 INSERT INTO eventAccount (account_name, account_HASH)
     values ('Dustin1977', '$2y$10$6LZGmYusa/vZPmdLUjhJjOubkciN6sTB/gr59zzpDvvocU5ZtR81W');
+INSERT INTO eventAccount (account_name, account_HASH)
+    values ('JeanJY1976', '$2y$10$dMzPbZW1yXj4YObrqlT6j.hLcJvAdPzuvkumGK8e/osC6WsdQ5Q22');
 
 -- TEST ENTRY
 INSERT INTO eventEntry (entry_content, entry_date, entry_timeline, entry_acct_FK)
@@ -20,6 +22,20 @@ INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Spouse', 1);
 INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Birth', 1);
 INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Death', 1);
 INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Love', 1);
+
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Goal', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Memory', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Event', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Journal', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Marriage', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Personal', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Loss', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Family', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Children', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Spouse', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Birth', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Death', 2);
+INSERT INTO eventTheme (theme_name, theme_acct_FK) values ('Love', 2);
 
 -- TEST Additional NOTE to a previous entry/event
 INSERT INTO eventNote (note_content, note_date, note_acct_FK)

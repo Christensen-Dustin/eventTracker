@@ -19,7 +19,7 @@ CREATE TABLE eventEntry (
 -- Theme or type of event
 CREATE TABLE eventTheme (
     theme_ID_PK     serial not null primary key,    -- theme ID
-    theme_name      varchar(80) not null unique,    -- name of theme or type
+    theme_name      varchar(80) not null,           -- name of theme or type
     theme_acct_FK   int references eventAccount(account_ID_PK)  -- Foreign Key to account
 );
 
