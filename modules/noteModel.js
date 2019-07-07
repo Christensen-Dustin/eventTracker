@@ -35,7 +35,7 @@ function addNewNoteToDB(id, entry, newDate, newNote, callback) {
     console.log("Back from the getNewNoteToDB New Note:" + newNote);
     
     var sql = "INSERT INTO  eventNote (note_content, note_date, note_acct_fk)" +
-        "VALUES ($1::text, $2::date, $3::int) RETURN note_id_pk";
+        "VALUES ($1::text, $2::date, $3::int) RETURNING note_id_pk";
     var params = [newNote, newDate, id];    
     
     pool.query(sql, params, function(error, db_results) {

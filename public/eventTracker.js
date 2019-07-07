@@ -112,7 +112,7 @@ function getNotes() {
 
 // Adds a NEW NOTE to a specified ENTRY
 function addNewNote() {
-    console.log("Searching for Notes related to Entry");
+    console.log("Adding Note related to Entry");
     
     var userID = userID;
     var entryID = entryID;
@@ -123,13 +123,18 @@ function addNewNote() {
     console.log("Entry ID: " + entryID);
     console.log("newNoteDate: " + date);
     console.log("newNoteContent: " + content);
-    
-            
+        
     clearSection("notes");
     
     $.post("/newNote",{id: userID, entry: entryID, date: date, content: content},
            function(data) {
-        console.log ("Back from the server with: ");        
+        console.log ("Back from the server with:");
+        console.log(data);
+        
+        var newNote = data.list[0];
+        
+        var newNoteID = newNote.note_id_pk;
+        
     });
 }
 

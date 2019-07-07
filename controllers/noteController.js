@@ -44,6 +44,10 @@ function addNewNote(request, response) {
             console.log(error);
         }
         
+        console.log(JSON.stringify(results));
+        
+        response.json(results);
+        
         addConnectNoteEvent(results);
     });
 };
@@ -52,11 +56,11 @@ function addNewNote(request, response) {
 function addConnectNoteEvent(request, response) {
     console.log("Preparing to ADD Connect for Event and Note to SERVER.");
     
-    var eventID = entryID
+    var eventID = entryID;
     
     var noteID = request.query.note_id_pk;
     
-    console.log("EntryID " + entry);
+    console.log("EntryID " + eventID);
     console.log("NoteID: " + noteID);
     
     noteModel.addConnectNoteEventToDB(eventID, noteID, function(error, results) {
@@ -65,8 +69,6 @@ function addConnectNoteEvent(request, response) {
         }
         
         response.json(results);
-        newNoteDoc();
-        getNotes();
     });
 };
 
