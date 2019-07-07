@@ -203,7 +203,7 @@ function loadThemeList() {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = "<b>Theme:</b><select>";
+        var display = "<b>Select Theme: </b><select>";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
