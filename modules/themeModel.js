@@ -40,7 +40,7 @@ function getThemeListFromDB(id, callback) {
             throw error;
         } else {
             
-            var results = { success: true, list: db_results};
+            var results = { success: true, list: db_results.rows };
             
             callback(null, results);
         }
