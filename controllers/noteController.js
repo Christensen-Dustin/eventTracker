@@ -31,10 +31,10 @@ function newNote(request, response) {
 function addNewNote(request, response) {
     console.log("Preparing to ADD NEW NOTE to SERVER.");
     
-    var id = request.query.id;
-    var entry = request.query.entry;
-    var newDate = Date(request.query.date);
-    var newNote = String(request.query.content);
+    var id = request.body.id;
+    var entry = request.body.entry;
+    var newDate = request.body.date;
+    var newNote = request.body.content;
     
     console.log("ID: " + id +" ENTRY: " + entry);
     console.log("NEWDATE: " + newDate +" NEWNOTE: " + newNote);
