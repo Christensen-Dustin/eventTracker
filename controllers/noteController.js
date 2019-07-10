@@ -55,8 +55,8 @@ function addNewNote(request, response) {
 function addConnectNoteEvent(request, response) {
     console.log("Preparing to ADD Connect for Event and Note to SERVER.");
     
-    var eventID = Number(request.query.entry);
-    var noteID = Number(request.query.note);
+    var eventID = Number(request.body.entry);
+    var noteID = Number(request.body.note);
     
     console.log("EntryID " + eventID);
     console.log("NoteID: " + noteID);
