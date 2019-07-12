@@ -47,6 +47,8 @@ INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (1, 6);
 
 -- TEST CONNECTION between event and note
 INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 1);
-
+INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 6);
+INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 7);
+INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 8);
 
 SELECT theme_ID_PK, theme_name, theme_acct_FK From eventTheme INNER JOIN eventThemeConnection ON theme_ID_PK = connectT_FK inner join eventEntry on connectE_FK=entry_ID_PK where entry_ID_PK=1 AND theme_acct_FK=1;

@@ -1,12 +1,13 @@
 // Account-Database variables
-var userID = 1;
-var entryID = 0;
+session.userID = 1;
+session.entryID = 0;
 var count = 0;
-// userData.userID = 1;
 
 // Loads USER DATA
 function loadUser() {
     console.log("Searching for User");
+    
+    var userID = session.userID;
     
     console.log("Acct ID: " + userID);
     
@@ -18,7 +19,7 @@ function loadUser() {
     
         var user = data.list[0];
         
-        entryID = user.entry_id_pk;
+        session.entryID = user.entry_id_pk;
         // entryID = data.list[data.list.length - 1].entry_id_pk;
         
         $("#user").append("<b>Greetings: </b> " + user.account_name +
@@ -40,7 +41,7 @@ function getLastEntry() {
 function lastEntry() {
     console.log("Searching for last entry");
     
-    var acct = userID;
+    var acct = session.userID;
     
     console.log("Acct ID: " + acct);
     
@@ -51,12 +52,10 @@ function lastEntry() {
         console.log(data);
     
         var entry = data.list[data.list.length - 1];
-        // entryID = data.list[data.list.length - 1].entry_id_pk;
+        session.entryID = entry.entry_id_pk;
         
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
         console.log("entryID: " + entryID);
-        
-        // entryID = Number(entry.entry_id_pk);
         
         $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
                            "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
@@ -69,8 +68,8 @@ function lastEntry() {
 function getThemes() {
     console.log("Searching for Themes related to entry");
     
-    var acct = userID;
-    var entry = entryID;
+    var acct = session.userID;
+    var entry = session.entryID;
     
     console.log("Acct ID: " + acct);
     console.log("Entry ID: " + entry);
@@ -99,8 +98,8 @@ function getThemes() {
 function getNotes() {
     console.log("Searching for Notes related to Entry");
     
-    var acct = userID;
-    var entry = entryID
+    var acct = session.userID;
+    var entry = session.entryID;
     
     console.log("Acct ID: " + acct);
     console.log("Entry ID: " + entry);
@@ -115,7 +114,7 @@ function getNotes() {
             var note = data.list[i];
         
             $("#notes").append("<b>Note Date:</b> " + note.note_date +
-                              "<br><b>Note Content:</b><br>" + note.note_content + "<br>");
+                              "<br><b>Note Content:</b><br>" + note.note_content + "<br><br>");
         }
     });
 }
@@ -124,8 +123,8 @@ function getNotes() {
 function addNote() {
     console.log("Adding Note related to Entry");
     
-    var acct = userID;
-    var entry = entryID;
+    var acct = session.userID;
+    var entry = session.entryID;
     var date = document.getElementsByName("newNoteDate")[0].value;
     var content = document.getElementsByName("newNote")[0].value.trim();
     
@@ -145,6 +144,8 @@ function addNote() {
         
         var newNoteID = newNote.note_id_pk;
         
+        console.log("newNoteID: " + newNoteID);
+        
         addConnectNoteEvent(newNoteID);
         
     });
@@ -154,7 +155,7 @@ function addNote() {
 function addConnectNoteEvent(noteID) {
     console.log("Adding Note related to Entry");
     
-    var entry = entryID;
+    var entry = session.entryID;
     var note = noteID;
     
     console.log("Entry ID: " + entry);
