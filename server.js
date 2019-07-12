@@ -21,10 +21,10 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
-// Session Setup
+// Session Set-up
 app.use(session({
-    secret: 'Bacon-is-great-for-all-sessions',
-    resave: false,
+    secret: 'Bacon-is-great-for-every-session',
+    resave: true,
     saveUninitialized: true
 }));
 
