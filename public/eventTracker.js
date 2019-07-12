@@ -57,7 +57,7 @@ function lastEntry() {
     
     console.log("Acct ID: " + acct);
     
-    clearSection("entry");
+    // clearSection("entry");
     
     $.get("/getLastEntry",{id: acct}, function(data) {
         console.log ("Back from the server with: ");
