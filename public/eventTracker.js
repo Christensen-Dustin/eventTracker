@@ -169,6 +169,7 @@ function addConnectNoteEvent(noteID) {
         
         var newNoteConnect = data.list[0];
         
+        getNotes();
         newNoteDoc();
     });
 }
