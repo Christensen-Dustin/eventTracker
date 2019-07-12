@@ -15,6 +15,7 @@ header {
 
 #user {
     background-color: lightgoldenrodyellow;
+    border-radius: 10px;
     border: 3px solid brown;
     width: 40%;
     padding: 13px 13px;
@@ -57,47 +58,64 @@ header {
 #workArea {
     grid-area: main;
     background-color: white;
-    width: 73%;
+    width: 42%;
     height: 80%;
     border: 3px solid red;
+    border-radius: 10px;
     overflow: hidden;
-    float:left auto;
+    float:left;
+    padding: 13px 11px;
+}
+
+#workArea2 {
+    grid-area: main;
+    background-color: white;
+    width: 42%;
+    height: 80%;
+    border: 3px solid red;
+    border-radius: 10px;
+    overflow: hidden;
+    float:left;
     padding: 13px 11px;
 }
 
 #left {
     grid-area: left;
     background-color:white;
-    width: 23%;
+    width: 20%;
     float: left;
     border: 3px solid green;
+    border-radius: 10px;
     padding: 21px 13px;
 }
 
 #centerLeft {
     grid-area: left;
     background-color:white;
-    width: 23%;
+    width: 20%;
     float: left;
     border: 3px solid green;
+    border-radius: 10px;
     padding: 21px 13px;
 }
 
 #centerRight {
     grid-area: rig;
     background-color:white;
-    width: 23%;
+    width: 20%;
     float: left;
     border: 3px solid green;
+    border-radius: 10px;
     padding: 21px 13px;
 }
 
 #right {
     grid-area: menu;
     background-color: white;
-    width: 23%;
+    width: 20%;
     float: left;
     border: 3px solid green;
+    border-radius: 10px;
     overflow: hidden;
     padding: 21px 13px;
 }
