@@ -45,7 +45,7 @@ function getLastEntry() {
         }
     }
     
-    request.open("GET", "/newNote", true);
+    request.open("GET", "/lastEntry", true);
     request.send();
 }
 
@@ -57,7 +57,7 @@ function lastEntry() {
     
     console.log("Acct ID: " + acct);
     
-    // clearSection("entry");
+    clearSection("entry");
     
     $.get("/getLastEntry",{id: acct}, function(data) {
         console.log ("Back from the server with: ");
