@@ -41,6 +41,9 @@ app.get("/getNotes", noteController.getNotes);
 app.get("/newNote", function(request, response) {
     response.render('newNote');
 });
+app.get("/lastEntry", function(request, response) {
+    response.render('lastEntry');
+});
 
 app.post("/addNote", noteController.addNewNote);
 app.post("/addNoteConnect", noteController.addConnectNoteEvent);

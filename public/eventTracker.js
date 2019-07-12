@@ -30,10 +30,23 @@ function loadUser() {
 
 // Loads the Last Entry and assocciated data
 function getLastEntry() {
-    lastEntry();
-    getThemes();
-    getNotes();
-    newNoteDoc();
+    clearSection("workArea");
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("workArea").innerHTML = request.responseText;
+            
+            lastEntry();
+            getThemes();
+            getNotes();
+            newNoteDoc();
+        }
+    }
+    
+    request.open("GET", "/newNote", true);
+    request.send();
 }
 
 // Grabs the last ENTRY
