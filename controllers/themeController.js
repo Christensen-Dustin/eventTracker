@@ -38,5 +38,5 @@ function getThemeList(request, response) {
 
 module.exports = {
     getThemes: getThemes,
-    getThemeList: getThemeList    
+    getThemeList: getThemeList
 };

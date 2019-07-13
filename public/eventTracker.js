@@ -4,6 +4,7 @@ var entryID = 0;
 var count = 0;
 // userData.userID = 1;
 
+
 // Loads USER DATA
 function loadUser() {
     console.log("Searching for User");
@@ -28,6 +29,7 @@ function loadUser() {
     loadThemeList();
 }
 
+
 // Loads the Last Entry and assocciated data
 function getLastEntry() {
     clearSection("workArea");
@@ -48,6 +50,7 @@ function getLastEntry() {
     request.open("GET", "/lastEntry", true);
     request.send();
 }
+
 
 // Grabs the last ENTRY
 function lastEntry() {
@@ -77,6 +80,7 @@ function lastEntry() {
                            "<br><b>Entry Content:</b><br>" + entry.entry_content);
     });
 }
+
 
 // Gets THEMES associated with specified ENTRY
 function getThemes() {
@@ -108,6 +112,38 @@ function getThemes() {
     });
 }
 
+
+// Gets THEMES associated with specified ENTRY
+function getThemeSelect() {
+    console.log("Searching for Themes to select for entry");
+    
+    var acct = userID;
+    var entry = entryID;
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
+    
+    clearSection("themeSelect");
+    
+    $.get("/getThemes",{id: acct, entry: entry}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+        
+        var display = "";
+    
+        for (var i = 0; i < data.list.length; i++) {
+            var theme = data.list[i];
+        
+            display += "<input type='checkbox' name='selectedTheme' value='" + 
+                theme.theme_id_pk + 
+                ">" + theme.theme_name;
+        }
+        
+        $("#themeSelect").append(display);
+    });
+}
+
+
 // Gets NOTES associated with specified ENTRY
 function getNotes() {
     console.log("Searching for Notes related to Entry");
@@ -132,6 +168,39 @@ function getNotes() {
         }
     });
 }
+
+
+// Adds a NEW NOTE to a specified ENTRY
+function addEntry() {
+    console.log("Adding New Entry");
+    
+    var acct = userID;
+    var entry = entryID;
+    var date = document.getElementsByName("newEntryDate")[0].value;
+    var content = document.getElementsByName("newEntry")[0].value.trim();
+    var themes = document.getElementsByName("themeSelect").value;
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
+    console.log("newEntryDate: " + date);
+    console.log("newEntryContent: " + content);
+        
+    // clearSection("notes");
+    
+    $.post("/addEntry",{id: acct, entry: entry, date: date, content: content},
+           function(data) {
+        console.log ("Back from the server with:");
+        console.log(data);
+        
+        var newEntry = data.list[0];
+        
+        var newEntryID = newNote.entry_id_pk;
+        
+        // addConnectThemeEvent(newEntryID, themes);
+        
+    });
+}
+
 
 // Adds a NEW NOTE to a specified ENTRY
 function addNote() {
@@ -162,6 +231,7 @@ function addNote() {
         
     });
 }
+
 
 // Add CONNECTION between NOTE and EVENT
 function addConnectNoteEvent(noteID) {
@@ -203,6 +273,8 @@ function newNoteDoc() {
     
     request.open("GET", "/newNote", true);
     request.send();
+    
+    getThemeSelect();
 }
 
 
