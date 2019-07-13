@@ -252,11 +252,10 @@ function addEntry() {
     console.log("newEntryTimeline: " + time);
     console.log("newEntryContent: " + content);
     
-        
+    var params = {id: acct, date: date, time: time, content: content};
     // clearSection("notes");
     
-    $.post("/addEntry",{id: acct, date: date, time: time, content: content},
-           function(data) {
+    $.post("/addEntry",params, function(data) {
         console.log ("Back from the server with:");
         console.log(data);
         

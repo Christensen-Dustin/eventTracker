@@ -86,7 +86,8 @@ function addConnectThemeEventToDB(eventID, themeIdList, callback) {
 **************************************************************************/
 module.exports = {
     getThemesFromDB: getThemesFromDB,
-    getThemeListFromDB: getThemeListFromDB
+    getThemeListFromDB: getThemeListFromDB,
+    addConnectThemeEventToDB: addConnectThemeEventToDB
 };
 
 /**************************************************************************

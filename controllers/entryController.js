@@ -53,7 +53,7 @@ function addNewEntry(request, response) {
     console.log("NEWDATE: " + newDate);
     console.log("NEWNOTE: " + newNote);
     
-    noteModel.addNewEntryToDB(id, newTime, newDate, newNote, function(error, results) {
+    entryModel.addNewEntryToDB(id, newTime, newDate, newNote, function(error, results) {
         if(error) {
             console.log(error);
         }
