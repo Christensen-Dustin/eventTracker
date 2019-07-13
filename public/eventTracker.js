@@ -133,7 +133,7 @@ function getThemeSelect() {
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
             
-            if(count = 5) {
+            if(count == 6) {
                 display += "<input type='checkbox' name='selectedTheme[]' value='" + 
                     theme.theme_id_pk + 
                     "'>" + theme.theme_name;
