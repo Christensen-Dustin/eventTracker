@@ -224,7 +224,7 @@ function addEntry() {
     var entry = entryID;
     var date = document.getElementsByName("newEntryDate")[0].value;
     var content = document.getElementsByName("newEntry")[0].value.trim();
-    var themes[] = document.getElementsByName("themeSelect").value;
+    var themes = document.getElementsByName("themeSelect").value;
     
     console.log("Acct ID: " + acct);
     console.log("Entry ID: " + entry);
