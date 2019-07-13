@@ -39,7 +39,7 @@ app.get("/lastEntry", entryController.lastEntryDoc);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
-app.get("/newNote", noteController.addNewNoteDoc);
+app.get("/newNote", noteController.NewNoteDoc);
 
 app.post("/addNote", noteController.addNewNote);
 app.post("/addNoteConnect", noteController.addConnectNoteEvent);
