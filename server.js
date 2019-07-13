@@ -35,9 +35,7 @@ app.get("/getUser", userController.getUserData);
 
 // Entry Controllers
 app.get("/getLastEntry", entryController.getLastEntry);
-app.get("/lastEntry", function(request, response) {
-    response.render('lastEntry');
-});
+app.get("/lastEntry", entryController.lastEntryDoc);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);

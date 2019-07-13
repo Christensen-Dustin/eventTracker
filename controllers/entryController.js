@@ -15,8 +15,12 @@ function getLastEntry(request, response) {
     });
 };
 
+function lastEntryDoc(request, response) {
+    response.render('lastEntry');
+}
+
 
 module.exports = {
-    getLastEntry: getLastEntry
-    
+    getLastEntry: getLastEntry,
+    lastEntryDoc: lastEntryDoc    
 };

@@ -190,7 +190,7 @@ function addConnectNoteEvent(noteID) {
 // Display the New Note Doc
 function newNoteDoc() {
     
-    clearSection("addNote");
+    clearSection("wordArea2");
     
     var request = new XMLHttpRequest();
     
