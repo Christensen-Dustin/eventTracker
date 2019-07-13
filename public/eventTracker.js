@@ -247,7 +247,7 @@ function addEntry() {
     
     var acct = userID;
     
-    var themes = document.getElementsByName("themeSelect")[].value;
+    var themes = document.getElementsByName("themeSelect").value;
     
     var date = document.getElementsByName("newEntryDate")[0].value;
     var time = document.getElementsByName("newEntryTime")[0].value;
