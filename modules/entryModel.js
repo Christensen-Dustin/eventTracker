@@ -33,6 +33,34 @@ function getLastEntryFromDB(id, callback) {
 
 
 /**************************************************************************
+*   Retrieves the Selected Entry from the DATABASE
+**************************************************************************/
+function getEntryFromDB(id, entry, callback) {
+    console.log("Entering getEntryFromDB");
+    console.log("Back from the User ID:" + id);
+    console.log("Back from the Entry ID:" + entry);
+    
+    var sql = "SELECT entry_ID_PK, entry_content, entry_date, entry_timeline, entry_acct_FK FROM eventEntry WHERE entry_acct_fk = $1::int AND entry_ID_PK = $2::int";
+    var params = [id, entry];
+    
+    pool.query(sql, params, function(error, db_results) {
+        if (error) {
+            throw error;
+        } else {
+            
+            var results = { success: true, list: db_results.rows };
+            
+            console.log("Transfered to db_results.rows: ", db_results.rows);
+        
+            console.log("Transfered to results: ", results);
+            
+            callback(null, results);
+        }    
+    });
+}
+
+
+/**************************************************************************
 *   Insert NEW NOTE into the DATABASE
 **************************************************************************/
 function addNewEntryToDB(id, newTime, newDate, newNote, callback) {
@@ -65,7 +93,8 @@ function addNewEntryToDB(id, newTime, newDate, newNote, callback) {
 **************************************************************************/
 module.exports = {
     getLastEntryFromDB: getLastEntryFromDB,
-    addNewEntryToDB: addNewEntryToDB
+    addNewEntryToDB: addNewEntryToDB,
+    getEntryFromDB: getEntryFromDB
 };
 
 /**************************************************************************

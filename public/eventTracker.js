@@ -70,6 +70,7 @@ function entryList() {
     console.log("Acct ID: " + acct);
     
     clearSection("workArea");
+    clearSection("wordArea2");
     
     $.get("/getLastEntry",{id: acct}, function(data) {
         console.log ("Back from the server with: ");
@@ -85,7 +86,7 @@ function entryList() {
                 "<b>Entry Date:</b> " + entry.entry_date +
                 "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
                 "<br><b>Entry Content:</b><br>" + entry.entry_content +
-                "<br>";
+                "<br<button onclick='getEntry(" + entry.entry_id_pk + ")'>Explore</button>";
             
             console.log("entry.entry_id_pk: " + entry.entry_id_pk);
             console.log("entryID: " + entryID);
@@ -134,6 +135,49 @@ function lastEntry() {
         
     });
 }
+
+
+/*************************************************************************
+*   Grabs the selected ENTRY
+*************************************************************************/
+function getEntry(entryID) {
+    console.log("Searching for selected entry");
+    
+    var acct = userID;
+    var entry = entryID;
+    
+    var params = {id: acct, entry: entry};
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
+    
+    clearSection("entry");
+    
+    $.get("/getEntry", params, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+    
+        var entry = data.list[0];
+        
+        // entryID = entry.entry_id_pk;
+        
+        console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+        console.log("entryID: " + entryID);
+        
+        var display = "<b>Entry Date:</b> " + entry.entry_date +
+            "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
+            "<br><b>Entry Content:</b><br>" + entry.entry_content;
+        
+        var display2 = "<b>Entry Date:</b> " + data.list[data.list.length - 1].entry_date +
+            "<br><b>Entry Timeline:</b> " + data.list[data.list.length - 1].entry_timeline +
+            "<br><b>Entry Content:</b><br>" + data.list[data.list.length - 1].entry_content;
+        
+        $("#entry").append(display);
+        // $("#entry").append(display2);
+        
+    });
+}
+
 
 
 /*************************************************************************

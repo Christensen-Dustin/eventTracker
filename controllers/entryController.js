@@ -20,6 +20,25 @@ function getLastEntry(request, response) {
 
 
 /**************************************************************************
+*   Retreives Specified Entry
+**************************************************************************/
+function getEntry(request, response) {
+    console.log("Retrieving Selected Entry from SERVER.");
+    
+    var id = request.query.id;
+    var entry = request.query.entry;
+    
+    entryModel.getEntryFromDB(id, entry, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+};
+
+
+/**************************************************************************
 *   Pulls up Page to display the Last Entry
 **************************************************************************/
 function lastEntryDoc(request, response) {
@@ -72,7 +91,8 @@ module.exports = {
     getLastEntry: getLastEntry,
     lastEntryDoc: lastEntryDoc,
     newEntryDoc: newEntryDoc,
-    addNewEntry: addNewEntry
+    addNewEntry: addNewEntry,
+    getEntry: getEntry
 };
 
 /**************************************************************************
