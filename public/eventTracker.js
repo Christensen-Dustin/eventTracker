@@ -119,9 +119,17 @@ function lastEntry() {
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
         console.log("entryID: " + entryID);
         
-        $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
-                           "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
-                           "<br><b>Entry Content:</b><br>" + entry.entry_content);
+        var display = "<b>Entry Date:</b> " + entry.entry_date +
+            "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
+            "<br><b>Entry Content:</b><br>" + entry.entry_content;
+        
+        var display2 = "<b>Entry Date:</b> " + data.list[data.list.length - 1].entry_date +
+            "<br><b>Entry Timeline:</b> " + data.list[data.list.length - 1].entry_timeline +
+            "<br><b>Entry Content:</b><br>" + data.list.[data.list.length - 1].entry_content;
+        
+        // $("#entry").append(display);
+        $("#entry").append(display2);
+        
     });
 }
 
@@ -239,7 +247,7 @@ function addEntry() {
     
     var acct = userID;
     
-    var themes = document.getElementsByName("themeSelect").value;
+    var themes = document.getElementsByName("themeSelect")[].value;
     
     var date = document.getElementsByName("newEntryDate")[0].value;
     var time = document.getElementsByName("newEntryTime")[0].value;

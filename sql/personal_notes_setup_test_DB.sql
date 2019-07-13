@@ -44,6 +44,12 @@ INSERT INTO eventNote (note_content, note_date, note_acct_FK)
 -- TEST CONNECTION between event and theme
 INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (1, 1);
 INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (1, 6);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (2, 2);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (2, 12);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (2, 7);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (3, 8);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (3, 10);
+INSERT INTO eventThemeConnection (connectE_FK, connectT_FK) values (3, 9);
 
 -- TEST CONNECTION between event and note
 INSERT INTO eventNoteConnection (connectE_FK, connectN_FK) values (1, 1);
