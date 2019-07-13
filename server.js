@@ -36,10 +36,11 @@ app.get("/getUser", userController.getUserData);
 // Entry Controllers
 app.get("/getLastEntry", entryController.getLastEntry);
 app.get("/lastEntry", entryController.lastEntryDoc);
+app.get("/newEntry", entryController.newEntryDoc);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
-app.get("/newNote", noteController.NewNoteDoc);
+app.get("/newNote", noteController.newNoteDoc);
 
 app.post("/addNote", noteController.addNewNote);
 app.post("/addNoteConnect", noteController.addConnectNoteEvent);

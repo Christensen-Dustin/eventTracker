@@ -187,6 +187,7 @@ function addConnectNoteEvent(noteID) {
     });
 }
 
+
 // Display the New Note Doc
 function newNoteDoc() {
     
@@ -203,6 +204,25 @@ function newNoteDoc() {
     request.open("GET", "/newNote", true);
     request.send();
 }
+
+
+// Display the New Entry Doc
+function newEntryDoc() {
+    
+    clearSection("workArea2");
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("workArea2").innerHTML = request.responseText;
+        }
+    }
+    
+    request.open("GET", "/newEntry", true);
+    request.send();
+}
+
 
 // Load Themes in Drop Down menu
 function loadThemeList() {
@@ -232,6 +252,7 @@ function loadThemeList() {
         $("#themeList").append(display);
     }
 )}
+
 
 // Clear Sections by ID
 function clearSection(sectionID) {
