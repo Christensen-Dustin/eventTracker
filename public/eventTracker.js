@@ -127,8 +127,8 @@ function lastEntry() {
             "<br><b>Entry Timeline:</b> " + data.list[data.list.length - 1].entry_timeline +
             "<br><b>Entry Content:</b><br>" + data.list[data.list.length - 1].entry_content;
         
-        // $("#entry").append(display);
-        $("#entry").append(display2);
+        $("#entry").append(display);
+        // $("#entry").append(display2);
         
     });
 }
