@@ -70,7 +70,7 @@ function entryList() {
     console.log("Acct ID: " + acct);
     
     clearSection("workArea");
-    clearSection("wordArea2");
+    clearSection("workArea2");
     
     $.get("/getLastEntry",{id: acct}, function(data) {
         console.log ("Back from the server with: ");
