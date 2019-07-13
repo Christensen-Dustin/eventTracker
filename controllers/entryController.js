@@ -56,6 +56,14 @@ function newEntryDoc(request, response) {
 
 
 /**************************************************************************
+*   Pulls up Page to display the Selected Entry
+**************************************************************************/
+function lastEntryDoc(request, response) {
+    response.render('entry');
+}
+
+
+/**************************************************************************
 *   Add New Note to DATABASE
 **************************************************************************/
 function addNewEntry(request, response) {

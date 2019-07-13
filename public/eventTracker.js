@@ -62,8 +62,9 @@ function getLastEntry() {
 /*************************************************************************
 *   Loads the Selected Entry and assocciated data
 *************************************************************************/
-function getEntry(entryID) {
+function getEntry(entry) {
     clearSection("workArea");
+    entryID = entry;
     
     var request = new XMLHttpRequest();
     
@@ -71,7 +72,7 @@ function getEntry(entryID) {
         if(this.readyState == 4 && this.status == 200) {
             document.getElementById("workArea").innerHTML = request.responseText;
             
-            getSelectEntry(entryID);
+            getSelectEntry(entry);
             getThemes();
             getNotes();
             newNoteDoc();

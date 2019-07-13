@@ -38,6 +38,7 @@ app.get("/getLastEntry", entryController.getLastEntry);
 app.get("/lastEntry", entryController.lastEntryDoc);
 app.get("/newEntry", entryController.newEntryDoc);
 app.get("/getEntry", entryController.getEntry);
+app.get("/entry", entryController.entryDoc);
 
 app.post("/addEntry", entryController.addNewEntry);
 
