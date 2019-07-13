@@ -125,7 +125,7 @@ function lastEntry() {
         
         var display2 = "<b>Entry Date:</b> " + data.list[data.list.length - 1].entry_date +
             "<br><b>Entry Timeline:</b> " + data.list[data.list.length - 1].entry_timeline +
-            "<br><b>Entry Content:</b><br>" + data.list.[data.list.length - 1].entry_content;
+            "<br><b>Entry Content:</b><br>" + data.list[data.list.length - 1].entry_content;
         
         // $("#entry").append(display);
         $("#entry").append(display2);
