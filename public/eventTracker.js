@@ -86,7 +86,7 @@ function entryList() {
                 "<b>Entry Date:</b> " + entry.entry_date +
                 "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
                 "<br><b>Entry Content:</b><br>" + entry.entry_content +
-                "<br<button onclick='getEntry(" + entry.entry_id_pk + ")'>Explore</button>";
+                "<br><button onclick='getEntry(" + entry.entry_id_pk + ")'>Explore</button>";
             
             console.log("entry.entry_id_pk: " + entry.entry_id_pk);
             console.log("entryID: " + entryID);
