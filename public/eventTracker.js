@@ -127,14 +127,25 @@ function getThemeSelect() {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = "<b>Select Theme: </b><select>";
+        var count = 0;
+        var display = "";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
-        
-            display += "<input type='checkbox' name='selectedTheme[]' value='" + 
-                theme.theme_id_pk + 
-                "'>" + theme.theme_name;
+            
+            if(count = 5) {
+                display += "<input type='checkbox' name='selectedTheme[]' value='" + 
+                    theme.theme_id_pk + 
+                    "'>" + theme.theme_name;
+                
+                count = 0;
+            } else {
+                display += "<input type='checkbox' name='selectedTheme[]' value='" + 
+                    theme.theme_id_pk + 
+                    "'>" + theme.theme_name;
+                
+                count++;
+            }
         }
         
         display += "</select>";
