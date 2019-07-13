@@ -1,6 +1,9 @@
 const themeModel = require("../modules/themeModel.js");
 
 
+/**************************************************************************
+*   Retrieves Themes from DATABASE
+**************************************************************************/
 function getThemes(request, response) {
     console.log("Retrieving Themes from SERVER.");
     
@@ -18,7 +21,10 @@ function getThemes(request, response) {
     });
 };
 
-// Get List of Themes
+
+/**************************************************************************
+*   Get List of Themes
+**************************************************************************/
 function getThemeList(request, response) {
     console.log("Retrieving List of Themes");
     
@@ -36,7 +42,38 @@ function getThemeList(request, response) {
 };
 
 
+/**************************************************************************
+*   Connects THEMES to a specified EVENT/ENTRY
+**************************************************************************/
+function addThemeConnect(request, response) {
+    console.log("Preparing to ADD Connect for Event and THEMES to SERVER.");
+    
+    var eventID = request.body.entry;
+    var themeList = request.body.themes;
+    
+    console.log("Event ID: " + eventID);
+    console.log("Theme List: " + themeList);
+    
+    noteModel.addConnectThemeEventToDB(eventID, themeList, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+    
+};
+
+
+/**************************************************************************
+*   Modules to be Exported
+**************************************************************************/
 module.exports = {
     getThemes: getThemes,
-    getThemeList: getThemeList
+    getThemeList: getThemeList,
+    addThemeConnect: addThemeConnect
 };
+
+/**************************************************************************
+*
+**************************************************************************/

@@ -6,7 +6,10 @@ const db_url = process.env.DATABASE_URL || "postgress://et_user:elijah@localhost
 // Connection String
 const pool = new Pool({connectionString: db_url});
 
-// Get Themes for a specified ENTRY
+
+/**************************************************************************
+*   Get Themes for a specified ENTRY
+**************************************************************************/
 function getThemesFromDB(id, entry, callback) {
     console.log("Back from the getThemeFromDB ID:" + id);
     console.log("Back from the getThemeFromDB ENTRY:" + entry);
@@ -28,7 +31,10 @@ function getThemesFromDB(id, entry, callback) {
     });
 }
 
-// Get list of Themes from DATABASE
+
+/**************************************************************************
+*   Get list of Themes from DATABASE
+**************************************************************************/
 function getThemeListFromDB(id, callback) {
     console.log("Back from the getThemeListFromDB ID: " + id);
     
@@ -47,8 +53,42 @@ function getThemeListFromDB(id, callback) {
     });
 }
 
-// Exported MODULES
+
+/**************************************************************************
+*   Insert NEW THEMES into the DATABASE to a specific ENTRY
+**************************************************************************/
+function addConnectThemeEventToDB(eventID, themeIdList, callback) {
+    
+    console.log("Back from the addConnectNoteEventToDB EventID:" + eventID);
+    console.log("Back from the addConnectNoteEventToDB ThemeList:" + themeIdList);
+    
+    var sql = "INSERT INTO  eventThemeConnection (connectE_FK, connectT_fk)" +
+        "VALUES ($1::int, $2::int)";
+    var params = [eventID, noteID];    
+    
+    pool.query(sql, params, function(error, db_results) {
+        if (error) {
+            throw error;
+        } else {
+            
+            var results = { success: true, list: db_results.rows };
+        
+            console.log("Transfered to results: ", results);
+            
+            callback(null, results);
+        }    
+    });
+}
+
+
+/**************************************************************************
+*   Exported MODULES
+**************************************************************************/
 module.exports = {
     getThemesFromDB: getThemesFromDB,
     getThemeListFromDB: getThemeListFromDB
 };
+
+/**************************************************************************
+*
+**************************************************************************/

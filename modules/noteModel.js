@@ -30,9 +30,9 @@ function getNotesFromDB(id, entry, callback) {
 // Insert NEW NOTE into the DATABASE to a specific ENTRY
 function addNewNoteToDB(id, entry, newDate, newNote, callback) {
     console.log("Back from the addNewNoteToDB ID:" + id);
-    console.log("Back from the getNewNoteToDB ENTRY:" + entry);
+    console.log("Back from the addNewNoteToDB ENTRY:" + entry);
     console.log("Back from the addNewNoteToDB Date:" + newDate);
-    console.log("Back from the getNewNoteToDB New Note:" + newNote);
+    console.log("Back from the addNewNoteToDB Note:" + newNote);
     
     var sql = "INSERT INTO  eventNote (note_content, note_date, note_acct_fk)" +
         "VALUES ($1::text, $2::date, $3::int) RETURNING note_id_pk";
@@ -81,3 +81,7 @@ module.exports = {
     addNewNoteToDB: addNewNoteToDB,
     addConnectNoteEventToDB: addConnectNoteEventToDB
 };
+
+/**************************************************************************
+*
+**************************************************************************/

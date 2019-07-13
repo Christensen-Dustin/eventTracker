@@ -1,11 +1,15 @@
-// Account-Database variables
+/*************************************************************************
+*   Account-Database variables
+*************************************************************************/
 var userID = 1;
 var entryID = 0;
 var count = 0;
 // userData.userID = 1;
 
 
-// Loads USER DATA
+/*************************************************************************
+*   Loads USER DATA
+*************************************************************************/
 function loadUser() {
     console.log("Searching for User");
     
@@ -31,7 +35,9 @@ function loadUser() {
 }
 
 
-// Loads the Last Entry and assocciated data
+/*************************************************************************
+*   Loads the Last Entry and assocciated data
+*************************************************************************/
 function getLastEntry() {
     clearSection("workArea");
     
@@ -53,7 +59,9 @@ function getLastEntry() {
 }
 
 
-// Grab a list of notes
+/*************************************************************************
+*   Grab a list of notes
+*************************************************************************/
 function entryList() {
     console.log("Searching for all entries");
     
@@ -88,7 +96,9 @@ function entryList() {
 }
 
 
-// Grabs the last ENTRY
+/*************************************************************************
+*   Grabs the last ENTRY
+*************************************************************************/
 function lastEntry() {
     console.log("Searching for last entry");
     
@@ -114,7 +124,9 @@ function lastEntry() {
 }
 
 
-// Gets THEMES associated with specified ENTRY
+/*************************************************************************
+*   Gets THEMES associated with specified ENTRY
+*************************************************************************/
 function getThemes() {
     console.log("Searching for Themes related to entry");
     
@@ -145,7 +157,9 @@ function getThemes() {
 }
 
 
-// Gets THEMES associated with specified ENTRY
+/*************************************************************************
+*   Gets THEMES associated with specified ENTRY
+*************************************************************************/
 function getThemeSelect() {
     console.log("Generating Theme List");
     
@@ -187,7 +201,9 @@ function getThemeSelect() {
 )}
 
 
-// Gets NOTES associated with specified ENTRY
+/*************************************************************************
+*   Gets NOTES associated with specified ENTRY
+*************************************************************************/
 function getNotes() {
     console.log("Searching for Notes related to Entry");
     
@@ -213,39 +229,77 @@ function getNotes() {
 }
 
 
-// Adds a NEW NOTE to a specified ENTRY
+/*************************************************************************
+*   Adds a NEW ENTRY
+*************************************************************************/
 function addEntry() {
     console.log("Adding New Entry");
     
     var acct = userID;
-    var entry = entryID;
-    var date = document.getElementsByName("newEntryDate")[0].value;
-    var content = document.getElementsByName("newEntry")[0].value.trim();
+    
     var themes = document.getElementsByName("themeSelect").value;
     
+    var date = document.getElementsByName("newEntryDate")[0].value;
+    var time = document.getElementsByName("newEntryTime")[0].value;
+    var content = document.getElementsByName("newEntry")[0].value.trim();
+    
+    
     console.log("Acct ID: " + acct);
-    console.log("Entry ID: " + entry);
+    
+    console.log("newThemes: " + themes);
+    
     console.log("newEntryDate: " + date);
+    console.log("newEntryTimeline: " + time);
     console.log("newEntryContent: " + content);
+    
         
     // clearSection("notes");
     
-    $.post("/addEntry",{id: acct, entry: entry, date: date, content: content},
+    $.post("/addEntry",{id: acct, date: date, time: time, content: content},
            function(data) {
         console.log ("Back from the server with:");
         console.log(data);
         
         var newEntry = data.list[0];
         
-        var newEntryID = newNote.entry_id_pk;
+        var newEntryID = newEntry.entry_id_pk;
         
-        // addConnectThemeEvent(newEntryID, themes);
-        
+        addConnectThemeEvent(newEntryID, themes);
     });
 }
 
 
-// Adds a NEW NOTE to a specified ENTRY
+/*************************************************************************
+*   Add CONNECTION between THEME and EVENT
+*************************************************************************/
+function addConnectThemeEvent(entryID, themeList) {
+    console.log("Adding THEMES related to Entry");
+    
+    var entry = entryID;
+    var themes = themeList;
+    
+    console.log("Entry ID: " + note);
+    console.log("Themes: " + themes);
+        
+    clearSection("workArea2");
+    
+    for (var i = 0; i < themes.length; i++) {
+        $.post("/addThemeConnect",{entry: entry, themes: themes[i]}, function(data) {
+                console.log ("Back from the server with:");
+                console.log(data);
+        
+                var newThemeConnect = data.list[0];
+        });
+    }
+    
+    entryList();
+    newEntryDoc();
+}
+
+
+/*************************************************************************
+*   Adds a NEW NOTE to a specified ENTRY
+*************************************************************************/
 function addNote() {
     console.log("Adding Note related to Entry");
     
@@ -276,7 +330,9 @@ function addNote() {
 }
 
 
-// Add CONNECTION between NOTE and EVENT
+/*************************************************************************
+*   Add CONNECTION between NOTE and EVENT
+*************************************************************************/
 function addConnectNoteEvent(noteID) {
     console.log("Adding Note related to Entry");
     
@@ -301,7 +357,9 @@ function addConnectNoteEvent(noteID) {
 }
 
 
-// Display the New Note Doc
+/*************************************************************************
+*   Display the New Note Doc
+*************************************************************************/
 function newNoteDoc() {
     
     clearSection("workArea2");
@@ -319,7 +377,9 @@ function newNoteDoc() {
 }
 
 
-// Display the New Entry Doc
+/*************************************************************************
+*   Display the New Entry Doc
+*************************************************************************/
 function newEntryDoc() {
     
     clearSection("workArea2");
@@ -333,15 +393,14 @@ function newEntryDoc() {
             getThemeSelect();
         }
     }
-    
     request.open("GET", "/newEntry", true);
     request.send();
-    
-    // getThemeSelect();
 }
 
 
-// Load Themes in Drop Down menu
+/*************************************************************************
+*   Load Themes in Drop Down menu
+*************************************************************************/
 function loadThemeList() {
     console.log("Generating Theme List");
     
@@ -371,7 +430,9 @@ function loadThemeList() {
 )}
 
 
-// Clear Sections by ID
+/*************************************************************************
+*   Clear Sections by ID
+*************************************************************************/
 function clearSection(sectionID) {
     
     var select = document.getElementById(sectionID);
@@ -382,3 +443,7 @@ function clearSection(sectionID) {
     
     return;
 }
+
+/**************************************************************************
+*
+**************************************************************************/

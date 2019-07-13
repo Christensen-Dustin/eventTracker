@@ -38,6 +38,8 @@ app.get("/getLastEntry", entryController.getLastEntry);
 app.get("/lastEntry", entryController.lastEntryDoc);
 app.get("/newEntry", entryController.newEntryDoc);
 
+app.post("/addEntry", entryController.addNewEntry);
+
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
 app.get("/newNote", noteController.newNoteDoc);
@@ -48,6 +50,8 @@ app.post("/addNoteConnect", noteController.addConnectNoteEvent);
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
 app.get("/themeList", themeController.getThemeList);
+
+app.post("/addThemeConnect", themeController.addThemeConnect);
 
 // Listening on PORT
 app.listen(PORT, function() {
