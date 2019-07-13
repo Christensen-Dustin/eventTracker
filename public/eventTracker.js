@@ -27,6 +27,7 @@ function loadUser() {
     });
     
     loadThemeList();
+    entryList();
 }
 
 
@@ -49,6 +50,40 @@ function getLastEntry() {
     
     request.open("GET", "/lastEntry", true);
     request.send();
+}
+
+
+// Grab a list of notes
+function entryList() {
+    console.log("Searching for all entries");
+    
+    var acct = userID;
+    
+    console.log("Acct ID: " + acct);
+    
+    clearSection("workArea");
+    
+    $.get("/getLastEntry",{id: acct}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+        
+        var display = ""
+        
+        for(var i = 0; i < data.list.length; i++) {
+            var entry = data.list[i];
+            
+            display += "<b>Entry Date:</b> " + entry.entry_date +
+                "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
+                "<br><b>Entry ID:</b> " + entry.entry_id_pk +
+                "<br><b>Entry Content:</b><br>" + entry.entry_content +
+                "<br>";
+            
+            console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+            console.log("entryID: " + entryID);
+        }
+        
+        $("#workArea").append(display);
+    });
 }
 
 
@@ -136,7 +171,7 @@ function getThemeSelect() {
             if(count == 6) {
                 display += "<input type='checkbox' name='selectedTheme[]' value='" + 
                     theme.theme_id_pk + 
-                    "'>" + theme.theme_name;
+                    "'>" + theme.theme_name + "<br>";
                 
                 count = 0;
             } else {
@@ -189,7 +224,7 @@ function addEntry() {
     var entry = entryID;
     var date = document.getElementsByName("newEntryDate")[0].value;
     var content = document.getElementsByName("newEntry")[0].value.trim();
-    var themes = document.getElementsByName("themeSelect").value;
+    var themes[] = document.getElementsByName("themeSelect").value;
     
     console.log("Acct ID: " + acct);
     console.log("Entry ID: " + entry);
