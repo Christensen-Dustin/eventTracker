@@ -38,9 +38,7 @@ app.get("/getLastEntry", entryController.getLastEntry);
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
-app.get("/newNote", function(request, response) {
-    response.render('newNote');
-});
+app.get("/newNote", noteController.addNewNoteDoc);
 app.get("/lastEntry", function(request, response) {
     response.render('lastEntry');
 });

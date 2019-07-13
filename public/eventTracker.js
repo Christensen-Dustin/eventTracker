@@ -196,7 +196,7 @@ function newNoteDoc() {
     
     request.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
-            document.getElementById("addNote").innerHTML = request.responseText;
+            document.getElementById("workArea2").innerHTML = request.responseText;
         }
     }
     
