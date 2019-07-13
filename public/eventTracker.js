@@ -286,13 +286,15 @@ function newEntryDoc() {
     request.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
             document.getElementById("workArea2").innerHTML = request.responseText;
+            
+            getThemeSelect();
         }
     }
     
     request.open("GET", "/newEntry", true);
     request.send();
     
-    getThemeSelect();
+    // getThemeSelect();
 }
 
 
