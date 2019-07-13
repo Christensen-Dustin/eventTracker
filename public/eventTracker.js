@@ -68,7 +68,7 @@ function entryList() {
         console.log(data);
         
         var display = "";
-        var count = 0;
+        var count = 1;
         
         for(var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
