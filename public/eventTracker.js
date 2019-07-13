@@ -116,6 +116,8 @@ function lastEntry() {
     
         var entry = data.list[data.list.length - 1];
         
+        entryID = entry.entry_id_pk;
+        
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
         console.log("entryID: " + entryID);
         
