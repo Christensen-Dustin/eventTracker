@@ -67,14 +67,15 @@ function entryList() {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = ""
+        var display = "";
+        var count = 0;
         
         for(var i = 0; i < data.list.length; i++) {
             var entry = data.list[i];
             
-            display += "<b>Entry Date:</b> " + entry.entry_date +
+            display += "<h2>Entry: #" + count + "</h2>" +
+                "<b>Entry Date:</b> " + entry.entry_date +
                 "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
-                "<br><b>Entry ID:</b> " + entry.entry_id_pk +
                 "<br><b>Entry Content:</b><br>" + entry.entry_content +
                 "<br>";
             
@@ -102,16 +103,12 @@ function lastEntry() {
         console.log(data);
     
         var entry = data.list[data.list.length - 1];
-        // entryID = data.list[data.list.length - 1].entry_id_pk;
         
         console.log("entry.entry_id_pk: " + entry.entry_id_pk);
         console.log("entryID: " + entryID);
         
-        // entryID = Number(entry.entry_id_pk);
-        
         $("#entry").append("<b>Entry Date:</b> " + entry.entry_date +
                            "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
-                           "<br><b>Entry ID:</b> " + entry.entry_id_pk +
                            "<br><b>Entry Content:</b><br>" + entry.entry_content);
     });
 }
@@ -168,7 +165,7 @@ function getThemeSelect() {
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
             
-            if(count == 6) {
+            if(count == 5) {
                 display += "<input type='checkbox' name='selectedTheme[]' value='" + 
                     theme.theme_id_pk + 
                     "'>" + theme.theme_name + "<br>";
