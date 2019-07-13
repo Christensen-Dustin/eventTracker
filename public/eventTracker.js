@@ -273,8 +273,6 @@ function newNoteDoc() {
     
     request.open("GET", "/newNote", true);
     request.send();
-    
-    getThemeSelect();
 }
 
 
@@ -293,6 +291,8 @@ function newEntryDoc() {
     
     request.open("GET", "/newEntry", true);
     request.send();
+    
+    getThemeSelect();
 }
 
 
