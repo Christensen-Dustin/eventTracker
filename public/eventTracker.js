@@ -115,33 +115,33 @@ function getThemes() {
 
 // Gets THEMES associated with specified ENTRY
 function getThemeSelect() {
-    console.log("Searching for Themes to select for entry");
+    console.log("Generating Theme List");
     
-    var acct = userID;
-    var entry = entryID;
+    var id = userID;
     
-    console.log("Acct ID: " + acct);
-    console.log("Entry ID: " + entry);
+    console.log("Loading Theme List for: " + id);
     
     clearSection("themeSelect");
     
-    $.get("/getThemes",{id: acct, entry: entry}, function(data) {
+    $.get("/themeList", {id: id}, function(data) {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = "";
+        var display = "<b>Select Theme: </b><select>";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
         
-            display += "<input type='checkbox' name='selectedTheme' value='" + 
+            display += "<input type='checkbox' name='selectedTheme[]' value='" + 
                 theme.theme_id_pk + 
-                ">" + theme.theme_name;
+                "'>" + theme.theme_name;
         }
         
+        display += "</select>";
+        
         $("#themeSelect").append(display);
-    });
-}
+    }
+)}
 
 
 // Gets NOTES associated with specified ENTRY
