@@ -60,6 +60,30 @@ function getLastEntry() {
 
 
 /*************************************************************************
+*   Loads the Selected Entry and assocciated data
+*************************************************************************/
+function getEntry(entryID) {
+    clearSection("workArea");
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("workArea").innerHTML = request.responseText;
+            
+            getSelectEntry(entryID);
+            getThemes();
+            getNotes();
+            newNoteDoc();
+        }
+    }
+    
+    request.open("GET", "/lastEntry", true);
+    request.send();
+}
+
+
+/*************************************************************************
 *   Grab a list of notes
 *************************************************************************/
 function entryList() {
@@ -140,7 +164,7 @@ function lastEntry() {
 /*************************************************************************
 *   Grabs the selected ENTRY
 *************************************************************************/
-function getEntry(entryID) {
+function getSelectEntry(entryID) {
     console.log("Searching for selected entry");
     
     var acct = userID;
