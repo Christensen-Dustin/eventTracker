@@ -58,7 +58,7 @@ function newEntryDoc(request, response) {
 /**************************************************************************
 *   Pulls up Page to display the Selected Entry
 **************************************************************************/
-function lastEntryDoc(request, response) {
+function entryDoc(request, response) {
     response.render('entry');
 }
 
@@ -100,7 +100,8 @@ module.exports = {
     lastEntryDoc: lastEntryDoc,
     newEntryDoc: newEntryDoc,
     addNewEntry: addNewEntry,
-    getEntry: getEntry
+    getEntry: getEntry,
+    entryDoc: entryDoc
 };
 
 /**************************************************************************
