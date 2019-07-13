@@ -19,8 +19,14 @@ function lastEntryDoc(request, response) {
     response.render('lastEntry');
 }
 
+function newEntryDoc(request, response) {
+    
+    response.render('newEntry');
+};
+
 
 module.exports = {
     getLastEntry: getLastEntry,
-    lastEntryDoc: lastEntryDoc    
+    lastEntryDoc: lastEntryDoc,
+    newEntryDoc: newEntryDoc
 };

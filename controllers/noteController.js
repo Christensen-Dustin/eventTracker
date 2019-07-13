@@ -1,5 +1,6 @@
 const noteModel = require("../modules/noteModel.js");
 
+
 // Get NOTES related to specified ENTRY
 function getNotes(request, response) {
     console.log("Retrieving Notes from SERVER.");
@@ -18,6 +19,7 @@ function getNotes(request, response) {
     });
 };
 
+
 // Adding New Page to Work Space
 function newNote(request, response) {
     console.log("From noteController.newNote()")
@@ -26,6 +28,7 @@ function newNote(request, response) {
     response.render();
     response.end();
 };
+
 
 // Add New Note to DATABASE
 function addNewNote(request, response) {
@@ -51,6 +54,7 @@ function addNewNote(request, response) {
     });
 };
 
+
 // Add Connection between NOTE and EVENT
 function addConnectNoteEvent(request, response) {
     console.log("Preparing to ADD Connect for Event and Note to SERVER.");
@@ -70,15 +74,19 @@ function addConnectNoteEvent(request, response) {
     });
 };
 
-function addNewNoteDoc(request, response) {
+
+// Displays the New Note DOC
+function newNoteDoc(request, response) {
     
     response.render('newNote');
 };
 
+
+// Module Exporting
 module.exports = {
     getNotes: getNotes,
     newNote: newNote,
     addNewNote: addNewNote,
     addConnectNoteEvent: addConnectNoteEvent,
-    addNewNoteDoc: addNewNoteDoc
+    newNoteDoc: newNoteDoc
 };

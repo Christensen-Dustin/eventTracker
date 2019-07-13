@@ -190,7 +190,7 @@ function addConnectNoteEvent(noteID) {
 // Display the New Note Doc
 function newNoteDoc() {
     
-    clearSection("wordArea2");
+    clearSection("workArea2");
     
     var request = new XMLHttpRequest();
     
@@ -204,6 +204,7 @@ function newNoteDoc() {
     request.send();
 }
 
+// Load Themes in Drop Down menu
 function loadThemeList() {
     console.log("Generating Theme List");
     
@@ -232,6 +233,7 @@ function loadThemeList() {
     }
 )}
 
+// Clear Sections by ID
 function clearSection(sectionID) {
     
     var select = document.getElementById(sectionID);

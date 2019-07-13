@@ -1,6 +1,5 @@
 const userModel = require("../modules/userModel.js");
 
-
 function getUserData(request, response) {
     console.log("Retrieving User DATA from SERVER.");
     
