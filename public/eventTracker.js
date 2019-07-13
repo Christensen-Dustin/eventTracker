@@ -89,6 +89,8 @@ function entryList() {
             
             console.log("entry.entry_id_pk: " + entry.entry_id_pk);
             console.log("entryID: " + entryID);
+            
+            count++;
         }
         
         $("#workArea").append(display);
@@ -277,7 +279,7 @@ function addConnectThemeEvent(entryID, themeList) {
     var entry = entryID;
     var themes = themeList;
     
-    console.log("Entry ID: " + note);
+    console.log("Entry ID: " + entry);
     console.log("Themes: " + themes);
         
     clearSection("workArea2");
