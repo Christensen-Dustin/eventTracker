@@ -15,13 +15,8 @@ function getLastEntry(request, response) {
     });
 };
 
-function addNewNoteDoc(request, response) {
-    
-    response.render('newNote');
-};
 
 module.exports = {
-    getLastEntry: getLastEntry,
-    addNewNoteDoc: addNewNoteDoc
+    getLastEntry: getLastEntry
     
 };

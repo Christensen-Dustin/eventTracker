@@ -35,13 +35,13 @@ app.get("/getUser", userController.getUserData);
 
 // Entry Controllers
 app.get("/getLastEntry", entryController.getLastEntry);
+app.get("/lastEntry", function(request, response) {
+    response.render('lastEntry');
+});
 
 // Note Controllers
 app.get("/getNotes", noteController.getNotes);
 app.get("/newNote", noteController.addNewNoteDoc);
-app.get("/lastEntry", function(request, response) {
-    response.render('lastEntry');
-});
 
 app.post("/addNote", noteController.addNewNote);
 app.post("/addNoteConnect", noteController.addConnectNoteEvent);

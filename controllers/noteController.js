@@ -70,10 +70,15 @@ function addConnectNoteEvent(request, response) {
     });
 };
 
+function addNewNoteDoc(request, response) {
+    
+    response.render('newNote');
+};
 
 module.exports = {
     getNotes: getNotes,
     newNote: newNote,
     addNewNote: addNewNote,
-    addConnectNoteEvent: addConnectNoteEvent
+    addConnectNoteEvent: addConnectNoteEvent,
+    addNewNoteDoc: addNewNoteDoc
 };
