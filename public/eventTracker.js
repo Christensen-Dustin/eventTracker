@@ -106,6 +106,8 @@ function getThemeListDoc() {
     request.onreadystatechange = function () {
         if(this.readyState == 4 && this.status == 200) {
             document.getElementById("workArea").innerHTML = request.responseText;
+            
+            getThemeList();
         }
     }
     
@@ -545,6 +547,7 @@ function loadThemeList() {
         console.log(data);
         
         var display = "<b>Select Theme: </b><select>";
+        display += "<option>--Select--</option>";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
@@ -556,6 +559,37 @@ function loadThemeList() {
         display += "</select>";
         
         $("#themeList").append(display);
+    }
+)}
+
+
+/**************************************************************************
+*   Loads Theme list for updating
+**************************************************************************/
+function getThemeList() {
+    console.log("Generating Theme List");
+    
+    var id = userID;
+    
+    console.log("Loading Theme List for: " + id);
+    
+    clearSection("theme");
+    
+    $.get("/themeList", {id: id}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+        
+        var display = "<ul style='size: 18px;'>";
+    
+        for (var i = 0; i < data.list.length; i++) {
+            var theme = data.list[i];
+        
+            display += "<li>" + theme.theme_name + "</li>";
+        }
+        
+        display += "</ul>";
+        
+        $("#theme").append(display);
     }
 )}
 
