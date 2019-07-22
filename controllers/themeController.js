@@ -85,6 +85,30 @@ function getAddThemeDoc(request, response) {
 
 
 /**************************************************************************
+*   ADDs THEME to specified account
+**************************************************************************/
+function addTheme(request, response) {
+    console.log("Preparing to ADD THEME to SERVER.");
+    
+    var userID = request.body.id;
+    var eventID = request.body.entry;
+    var theme = request.body.theme;
+    
+    console.log("User ID: " + userID);
+    console.log("Event ID: " + eventID);
+    console.log("Theme: " + theme);
+    
+    noteModel.addThemeToDB(userID, eventID, theme, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+};
+
+
+/**************************************************************************
 *   Modules to be Exported
 **************************************************************************/
 module.exports = {
@@ -92,7 +116,8 @@ module.exports = {
     getThemeList: getThemeList,
     addThemeConnect: addThemeConnect,
     getThemeDoc: getThemeDoc,
-    getAddThemeDoc: getAddThemeDoc    
+    getAddThemeDoc: getAddThemeDoc,
+    addTheme: addTheme
 };
 
 /**************************************************************************

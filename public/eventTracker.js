@@ -579,7 +579,7 @@ function getThemeList() {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = "<ul style='size: 18px;'>";
+        var display = "<ul style='font-size: 23px;'>";
     
         for (var i = 0; i < data.list.length; i++) {
             var theme = data.list[i];
@@ -598,10 +598,30 @@ function getThemeList() {
 * Adds a new Theme to Themes associated with this account
 **************************************************************************/
 function addTheme() {
+    console.log("Adding Theme to specified Account");
     
-    getThemeListDoc();
-    getAddThemeDoc();
-  
+    var acct = userID;
+    var entry = entryID;
+    var theme = document.getElementById("newTheme").value;
+    
+    console.log("Acct ID: " + acct);
+    console.log("Entry ID: " + entry);
+    console.log("newNoteDate: " + theme);
+    
+    $.post("/addTheme", {id: acct, entry: entry, theme: theme},
+           function(data) {
+        console.log ("Back from the server with:");
+        console.log(data);
+        
+        var newTheme = data.list[0];
+        
+        var newThemeID = newTheme.theme_id_pk;
+        console.log("New THEME ID add: " + newThemeID);
+        
+        getThemeListDoc();
+        getAddThemeDoc();
+                
+    });
 }
 
 

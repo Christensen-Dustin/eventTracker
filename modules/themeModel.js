@@ -63,8 +63,36 @@ function addConnectThemeEventToDB(eventID, themeIdList, callback) {
     console.log("Back from the addConnectNoteEventToDB ThemeList:" + themeIdList);
     
     var sql = "INSERT INTO  eventThemeConnection (connectE_FK, connectT_fk)" +
-        "VALUES ($1::int, $2::int)";
+        "VALUES ($1::int, $2::int) RETURNING theme_id_pk";
     var params = [eventID, noteID];    
+    
+    pool.query(sql, params, function(error, db_results) {
+        if (error) {
+            throw error;
+        } else {
+            
+            var results = { success: true, list: db_results.rows };
+        
+            console.log("Transfered to results: ", results);
+            
+            callback(null, results);
+        }    
+    });
+}
+
+
+/**************************************************************************
+*   Insert NEW THEMES into the DATABASE to a specific ENTRY
+**************************************************************************/
+function addThemeToDB(userID, eventID, theme, callback) {
+    
+    console.log("Going to DB with User ID: " +userID);
+    console.log("Going to DB with Event ID:" + eventID);
+    console.log("Going to DB with Theme:" + theme);
+    
+    var sql = "INSERT INTO  eventTheme (theme_name, theme_acct_fk)" +
+        "VALUES ($1::text, $2::int)";
+    var params = [theme, userID];    
     
     pool.query(sql, params, function(error, db_results) {
         if (error) {
@@ -87,7 +115,8 @@ function addConnectThemeEventToDB(eventID, themeIdList, callback) {
 module.exports = {
     getThemesFromDB: getThemesFromDB,
     getThemeListFromDB: getThemeListFromDB,
-    addConnectThemeEventToDB: addConnectThemeEventToDB
+    addConnectThemeEventToDB: addConnectThemeEventToDB,
+    addThemeToDB: addThemeToDB
 };
 
 /**************************************************************************

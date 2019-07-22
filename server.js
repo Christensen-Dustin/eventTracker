@@ -56,6 +56,7 @@ app.get("/getThemeDoc", themeController.getThemeDoc);
 app.get("/getAddThemeDoc", themeController.getAddThemeDoc);
 
 app.post("/addThemeConnect", themeController.addThemeConnect);
+app.post("/addTheme", themeController.addTheme);
 
 // Listening on PORT
 app.listen(PORT, function() {
