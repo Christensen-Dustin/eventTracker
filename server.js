@@ -52,6 +52,8 @@ app.post("/addNoteConnect", noteController.addConnectNoteEvent);
 // Theme Controllers
 app.get("/getThemes", themeController.getThemes);
 app.get("/themeList", themeController.getThemeList);
+app.get("/getThemeDoc", themeController.getThemeDoc);
+app.get("/getAddThemeDoc", themeController.getAddThemeDoc);
 
 app.post("/addThemeConnect", themeController.addThemeConnect);
 

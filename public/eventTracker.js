@@ -85,6 +85,45 @@ function getEntry(entry) {
 
 
 /*************************************************************************
+*   Loads the Theme list Doc
+*************************************************************************/
+function getThemeListDoc() {
+    clearSection("workArea");
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("workArea").innerHTML = request.responseText;
+        }
+    }
+    
+    request.open("GET", "/getThemeDoc", true);
+    request.send();
+    getAddThemeDoc();
+}
+
+
+/*************************************************************************
+*   Loads the Add Theme Doc
+*************************************************************************/
+function getAddThemeDoc() {
+    clearSection("workArea2");
+    
+    var request = new XMLHttpRequest();
+    
+    request.onreadystatechange = function () {
+        if(this.readyState == 4 && this.status == 200) {
+            document.getElementById("workArea2").innerHTML = request.responseText;
+        }
+    }
+    
+    request.open("GET", "/getAddThemeDoc", true);
+    request.send();
+}
+
+
+/*************************************************************************
 *   Grab a list of notes
 *************************************************************************/
 function entryList() {
@@ -509,6 +548,17 @@ function loadThemeList() {
         $("#themeList").append(display);
     }
 )}
+
+
+/**************************************************************************
+* Adds a new Theme to Themes associated with this account
+**************************************************************************/
+function addTheme() {
+    
+    getThemeDoc();
+    getAddThemeDoc();
+  
+}
 
 
 /*************************************************************************

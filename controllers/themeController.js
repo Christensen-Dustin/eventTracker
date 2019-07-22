@@ -66,12 +66,33 @@ function addThemeConnect(request, response) {
 
 
 /**************************************************************************
+*   Pulls up Page to look at Themes linked to this account
+**************************************************************************/
+function getThemeDoc(request, response) {
+    
+    response.render('themeDoc');
+};
+
+
+
+/**************************************************************************
+*   Pulls up Page to ADD a theme to this account
+**************************************************************************/
+function getAddThemeDoc(request, response) {
+    
+    response.render('addThemeDoc');
+};
+
+
+/**************************************************************************
 *   Modules to be Exported
 **************************************************************************/
 module.exports = {
     getThemes: getThemes,
     getThemeList: getThemeList,
-    addThemeConnect: addThemeConnect
+    addThemeConnect: addThemeConnect,
+    getThemeDoc: getThemeDoc,
+    getAddThemeDoc: getAddThemeDoc    
 };
 
 /**************************************************************************
