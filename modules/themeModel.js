@@ -63,7 +63,7 @@ function addConnectThemeEventToDB(eventID, themeIdList, callback) {
     console.log("Back from the addConnectNoteEventToDB ThemeList:" + themeIdList);
     
     var sql = "INSERT INTO  eventThemeConnection (connectE_FK, connectT_fk)" +
-        "VALUES ($1::int, $2::int) RETURNING theme_id_pk";
+        "VALUES ($1::int, $2::int)";
     var params = [eventID, noteID];    
     
     pool.query(sql, params, function(error, db_results) {
@@ -91,7 +91,7 @@ function addThemeToDB(userID, eventID, theme, callback) {
     console.log("Going to DB with Theme:" + theme);
     
     var sql = "INSERT INTO  eventTheme (theme_name, theme_acct_fk)" +
-        "VALUES ($1::text, $2::int)";
+        "VALUES ($1::text, $2::int) RETURNING theme_id_pk";
     var params = [theme, userID];    
     
     pool.query(sql, params, function(error, db_results) {
