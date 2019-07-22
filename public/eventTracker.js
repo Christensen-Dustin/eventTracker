@@ -318,7 +318,7 @@ function addEntry() {
     
     var acct = userID;
     
-    var themes = document.getElementsByName("themeSelect").value;
+    var themes = $('#theme').getChidren(':checked');
     
     var date = document.getElementsByName("newEntryDate")[0].value;
     var time = document.getElementsByName("newEntryTime")[0].value;
@@ -357,6 +357,7 @@ function addConnectThemeEvent(entryID, themeList) {
     
     var entry = entryID;
     var themes = themeList;
+    var newThemeConnect = 0;
     
     console.log("Entry ID: " + entry);
     console.log("Themes: " + themes);
@@ -368,7 +369,7 @@ function addConnectThemeEvent(entryID, themeList) {
                 console.log ("Back from the server with:");
                 console.log(data);
         
-                var newThemeConnect = data.list[0];
+                newThemeConnect = data.list[0];
         });
     }
     
