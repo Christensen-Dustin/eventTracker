@@ -79,7 +79,7 @@ function getEntry(entry) {
         }
     }
     
-    request.open("GET", "/lastEntry", true);
+    request.open("GET", "/entry", true);
     request.send();
 }
 
