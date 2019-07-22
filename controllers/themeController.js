@@ -98,7 +98,7 @@ function addTheme(request, response) {
     console.log("Event ID: " + eventID);
     console.log("Theme: " + theme);
     
-    noteModel.addThemeToDB(userID, eventID, theme, function(error, results) {
+    themeModel.addThemeToDB(userID, eventID, theme, function(error, results) {
         if(error) {
             console.log(error);
         }
