@@ -620,6 +620,7 @@ function addTheme() {
         
         getThemeListDoc();
         getAddThemeDoc();
+        loadThemeList();
                 
     });
 }
