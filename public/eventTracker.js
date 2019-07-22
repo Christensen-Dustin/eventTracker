@@ -565,7 +565,7 @@ function loadThemeList() {
 **************************************************************************/
 function addTheme() {
     
-    getThemeDoc();
+    getThemeListDoc();
     getAddThemeDoc();
   
 }
