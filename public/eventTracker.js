@@ -87,6 +87,17 @@ function getEntry(entry) {
 /*************************************************************************
 *   Loads the Theme list Doc
 *************************************************************************/
+function getAddTheme() {
+    
+    getThemeListDoc();
+    getAddThemeDoc();
+}
+
+
+
+/*************************************************************************
+*   Loads the Theme list Doc
+*************************************************************************/
 function getThemeListDoc() {
     clearSection("workArea");
     
@@ -100,7 +111,6 @@ function getThemeListDoc() {
     
     request.open("GET", "/getThemeDoc", true);
     request.send();
-    getAddThemeDoc();
 }
 
 
