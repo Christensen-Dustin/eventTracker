@@ -1,7 +1,7 @@
 /*************************************************************************
 *   Account-Database variables
 *************************************************************************/
-var userID = 1;
+var userID = 0;
 var entryID = 0;
 var count = 0;
 // userData.userID = 1;
@@ -10,10 +10,42 @@ var count = 0;
 /*************************************************************************
 *   Loads USER DATA
 *************************************************************************/
-function loadUser() {
-    console.log("Searching for User");
+function loadUserDustin() {
     
-    console.log("Acct ID: " + userID);
+    var user = 1;
+    userID = user;
+    console.log("Searching for User");
+    console.log("Acct ID: " + user);
+    
+    clearSection("user");
+    
+    $.get("/getUser",{id: userID}, function(data) {
+        console.log ("Back from the server with: ");
+        console.log(data);
+    
+        var user = data.list[0];
+        
+        // entryID = user.entry_id_pk;
+        entryID = data.list[data.list.length - 1].entry_id_pk;
+        
+        $("#user").append("<b>Greetings: </b> " + user.account_name +
+                              " --- <b>UserID: </b> " + user.account_id_pk);
+    });
+    
+    loadThemeList();
+    entryList();
+}
+
+
+/*************************************************************************
+*   Loads USER DATA
+*************************************************************************/
+function loadUserJean() {
+    
+    var user = 2;
+    userID = user;
+    console.log("Searching for User");
+    console.log("Acct ID: " + user);
     
     clearSection("user");
     
