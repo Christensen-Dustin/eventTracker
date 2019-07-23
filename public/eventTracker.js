@@ -575,7 +575,7 @@ function selectByTheme(theme) {
     console.log("Searching for ENTRY by THEME");
     
     var acct = userID;
-    var themeID = themeID;
+    var themeID = theme;
     
     var params = {id: acct, theme: themeID};
     
