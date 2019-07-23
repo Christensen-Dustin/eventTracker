@@ -578,7 +578,9 @@ function loadThemeList() {
         console.log ("Back from the server with: ");
         console.log(data);
         
-        var display = "<b>Select Theme: </b><select onchange='selectByTheme(this.value)'>";
+        // onchange='selectByTheme(this.value)'
+        
+        var display = "<b>Select Theme: </b><select>";
         display += "<option value= 0 >Display All</option>";
     
         for (var i = 0; i < data.list.length; i++) {
