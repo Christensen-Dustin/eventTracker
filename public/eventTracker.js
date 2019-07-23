@@ -570,50 +570,51 @@ function selectByTheme(theme) {
     if (theme == 0) {
         
         entryList();
-    }
-    
-    console.log("Searching for ENTRY by THEME");
-    
-    var acct = userID;
-    var themeID = theme;
-    
-    var params = {id: acct, theme: themeID};
-    
-    console.log("Acct ID: " + acct);
-    console.log("Theme ID: " + themeID);
-    
-    clearSection("workArea");
-    
-    $.get("/getThemeEntry", params, function(data) {
-        console.log ("Back from the server with: ");
-        console.log(data);
-    
-        var entry = data.list[0];
-        
-        console.log("entry.entry_id_pk: " + entry.entry_id_pk);
-        console.log("entryID: " + entryID);
-        
-        var display = "";
-        var count = 1;
-        
-        for(var i = 0; i < data.list.length; i++) {
-            var entry = data.list[i];
+    } else {
             
-            display += "<h2>Entry: #" + count + "</h2>" +
+        console.log("Searching for ENTRY by THEME");
+    
+        var acct = userID;
+        var themeID = theme;
+    
+        var params = {id: acct, theme: themeID};
+    
+        console.log("Acct ID: " + acct);
+        console.log("Theme ID: " + themeID);
+    
+        clearSection("workArea");
+    
+        $.get("/getThemeEntry", params, function(data) {
+            console.log ("Back from the server with: ");
+            console.log(data);
+    
+            var entry = data.list[0];
+        
+            console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+            console.log("entryID: " + entryID);
+        
+            var display = "";
+            var count = 1;
+        
+            for(var i = 0; i < data.list.length; i++) {
+                var entry = data.list[i];
+                
+                display += "<h2>Entry: #" + count + "</h2>" +
                 "<b>Entry Date:</b> " + entry.entry_date +
                 "<br><b>Entry Timeline:</b> " + entry.entry_timeline +
                 "<br><b>Entry Content:</b><br>" + entry.entry_content +
                 "<br><button onclick='getEntry(" + entry.entry_id_pk + ")'>Explore</button>";
-            
-            console.log("entry.entry_id_pk: " + entry.entry_id_pk);
-            console.log("entryID: " + entryID);
-            
-            count++;
-        }
+                
+                console.log("entry.entry_id_pk: " + entry.entry_id_pk);
+                console.log("entryID: " + entryID);
+                
+                count++;
+            }
         
-        $("#workArea").append(display);
+            $("#workArea").append(display);
         
-    });
+        });
+    }
     
 }
 
