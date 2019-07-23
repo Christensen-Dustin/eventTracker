@@ -112,7 +112,7 @@ function addThemeToDB(userID, eventID, theme, callback) {
 /**************************************************************************
 *   Get ENTRY based on a particular THEME
 **************************************************************************/
-function getThemesFromDB(id, themeID, callback) {
+function getThemesEntryFromDB(id, themeID, callback) {
     console.log("Back from the getThemeFromDB ID:" + id);
     console.log("Back from the getThemeFromDB ENTRY:" + themeID);
     
@@ -141,7 +141,8 @@ module.exports = {
     getThemesFromDB: getThemesFromDB,
     getThemeListFromDB: getThemeListFromDB,
     addConnectThemeEventToDB: addConnectThemeEventToDB,
-    addThemeToDB: addThemeToDB
+    addThemeToDB: addThemeToDB,
+    getThemeEntryFromDB: getThemesEntryFromDB
 };
 
 /**************************************************************************
