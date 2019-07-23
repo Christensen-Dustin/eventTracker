@@ -110,6 +110,31 @@ function addThemeToDB(userID, eventID, theme, callback) {
 
 
 /**************************************************************************
+*   Get ENTRY based on a particular THEME
+**************************************************************************/
+function getThemesFromDB(id, themeID, callback) {
+    console.log("Back from the getThemeFromDB ID:" + id);
+    console.log("Back from the getThemeFromDB ENTRY:" + themeID);
+    
+    var sql = "SELECT entry_ID_PK, entry_content, entry_date, entry_timeline From eventEntry INNER JOIN eventThemeConnection ON entry_ID_PK = connectE_FK INNER JOIN eventTheme ON connectT_FK=theme_ID_PK WHERE theme_ID_PK=$1::int AND theme_acct_FK=$2::int";
+    var params = [themeID, id];
+    
+    pool.query(sql, params, function(error, db_results) {
+        if (error) {
+            throw error;
+        } else {
+            
+            var results = { success: true, list: db_results.rows };
+        
+            console.log("Transfered to results: ", results);
+            
+            callback(null, results);
+        }    
+    });
+}
+
+
+/**************************************************************************
 *   Exported MODULES
 **************************************************************************/
 module.exports = {

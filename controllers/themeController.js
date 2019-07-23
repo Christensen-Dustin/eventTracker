@@ -109,6 +109,28 @@ function addTheme(request, response) {
 
 
 /**************************************************************************
+*   Get Entry by Theme
+**************************************************************************/
+function getThemeEntry(request, response) {
+    console.log("Retrieving Entries by Theme");
+    
+    var id = request.query.id;
+    var themeID = request.query.theme;
+    
+    console.log("ID: " + id);
+    console.log("Theme ID: " + themeID);
+    
+    themeModel.getThemeEntryFromDB(id, function(error, results) {
+        if(error) {
+            console.log(error);
+        }
+        
+        response.json(results);
+    });
+};
+
+
+/**************************************************************************
 *   Modules to be Exported
 **************************************************************************/
 module.exports = {
@@ -117,7 +139,8 @@ module.exports = {
     addThemeConnect: addThemeConnect,
     getThemeDoc: getThemeDoc,
     getAddThemeDoc: getAddThemeDoc,
-    addTheme: addTheme
+    addTheme: addTheme,
+    getThemeEntry: getThemeEntry
 };
 
 /**************************************************************************

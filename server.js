@@ -54,6 +54,7 @@ app.get("/getThemes", themeController.getThemes);
 app.get("/themeList", themeController.getThemeList);
 app.get("/getThemeDoc", themeController.getThemeDoc);
 app.get("/getAddThemeDoc", themeController.getAddThemeDoc);
+app.get("/getThemeEntry", themeController.getThemeEntry);
 
 app.post("/addThemeConnect", themeController.addThemeConnect);
 app.post("/addTheme", themeController.addTheme);
